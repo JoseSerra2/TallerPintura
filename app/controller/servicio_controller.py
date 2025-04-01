@@ -16,17 +16,17 @@ def get_db():
         db.close()
 
 
-@router.get("/GET/servicios", response_model=List[ServicioSchema])
+@router.get("/GET/pintura/servicios", response_model=List[ServicioSchema])
 def listar_servicios(db: Session = Depends(get_db)):
     return get_servicios(db)
 
 
-@router.post("/POST/servicios", response_model=ServicioSchema)
+@router.post("/POST/pintura/servicios", response_model=ServicioSchema)
 def crear_servicio(servicio: ServicioCreate, db: Session = Depends(get_db)):
     return create_servicio(db, servicio)
 
 
-@router.put("/PUT/servicios/{idServicio}", response_model=ServicioSchema)
+@router.put("/PUT/pintura/servicios/{idServicio}", response_model=ServicioSchema)
 def actualizar_servicio(idServicio: int, servicio_data: ServicioUpdate, db: Session = Depends(get_db)):
     servicio_actualizado = update_servicio(db, idServicio, servicio_data)
     if not servicio_actualizado:

@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from app.controller.cliente_controller import router as cliente_router
 from app.controller.servicio_controller import router as servicio_router 
 from app.controller.tipovehiculo_controller import router as tipovehiculo_router 
 from app.controller.tipopintura_controller import router as tipopintura_router
@@ -14,7 +13,6 @@ app = FastAPI(
 )
 
 
-app.include_router(cliente_router, tags=["Clientes"])
 app.include_router(servicio_router, tags=["Servicios"])  
 app.include_router(tipovehiculo_router, tags=["Tipos de Vehículos"])
 app.include_router(tipopintura_router, tags=["Tipos de Pintura"])  

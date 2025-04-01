@@ -16,17 +16,17 @@ def get_db():
         db.close()
 
 
-@router.get("/GET/tiposervicios", response_model=List[TipoServicioSchema])
+@router.get("/GET/pintura/tiposervicios", response_model=List[TipoServicioSchema])
 def listar_tiposervicios(db: Session = Depends(get_db)):
     return get_tiposervicios(db)
 
 
-@router.post("/POST/tiposervicios", response_model=TipoServicioSchema)
+@router.post("/POST/pintura/tiposervicios", response_model=TipoServicioSchema)
 def crear_tiposervicio(tiposervicio: TipoServicioCreate, db: Session = Depends(get_db)):
     return create_tiposervicio(db, tiposervicio)
 
 
-@router.put("/PUT/tiposervicios/{idTipoServicio}", response_model=TipoServicioSchema)
+@router.put("/PUT/pintura/tiposervicios/{idTipoServicio}", response_model=TipoServicioSchema)
 def actualizar_tiposervicio(idTipoServicio: int, tiposervicio_data: TipoServicioUpdate, db: Session = Depends(get_db)):
     tiposervicio_actualizado = update_tiposervicio(db, idTipoServicio, tiposervicio_data)
     if not tiposervicio_actualizado:

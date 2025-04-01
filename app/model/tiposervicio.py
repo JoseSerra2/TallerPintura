@@ -7,7 +7,6 @@ class TipoServicio(Base):
 
     idTipoServicio = Column(Integer, primary_key=True, autoincrement=True)
     NombreTipo = Column(String(100), nullable=False)
-    PrecioBase = Column(DECIMAL(10, 2), nullable=False)
     idServicio = Column(Integer, ForeignKey("Servicio.idServicio", ondelete="SET NULL"), nullable=True)
 
     servicio = relationship("Servicio", back_populates="tiposervicios")  

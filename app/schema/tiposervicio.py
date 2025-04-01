@@ -7,7 +7,6 @@ from datetime import datetime
 class TipoServicioSchema(BaseModel):
     idTipoServicio: int
     NombreTipo: str
-    PrecioBase: Decimal
     idServicio: Optional[int]  
 
     class Config:
@@ -16,11 +15,9 @@ class TipoServicioSchema(BaseModel):
 
 class TipoServicioCreate(BaseModel):
     NombreTipo: str
-    PrecioBase: Decimal
     idServicio: Optional[int] = None
 
 
 class TipoServicioUpdate(BaseModel):
     NombreTipo: Optional[str] = None
-    PrecioBase: Optional[Decimal] = None
     idServicio: Optional[int] = None

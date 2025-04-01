@@ -16,12 +16,12 @@ def get_db():
         db.close()
 
 
-@router.get("/GET/inventarios", response_model=List[InventarioSchema])
+@router.get("/GET/pintura/inventarios", response_model=List[InventarioSchema])
 def listar_inventarios(db: Session = Depends(get_db)):
     return get_inventarios(db)
 
 
-@router.post("/POST/inventarios", response_model=InventarioSchema)
+@router.post("/POST/pintura/inventarios", response_model=InventarioSchema)
 def crear_inventario(inventario: InventarioCreate, db: Session = Depends(get_db)):
     return create_inventario(db, inventario)
 

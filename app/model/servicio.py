@@ -10,3 +10,4 @@ class Servicio(Base):
     DescripcionServicio = Column(String(150), nullable=False)
 
     tiposervicios = relationship("TipoServicio", back_populates="servicio")  
+    detalles = relationship("DetalleVenta", back_populates="servicio", cascade="all, delete-orphan")

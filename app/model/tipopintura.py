@@ -8,7 +8,7 @@ class TipoPintura(Base):
 
     idTipoPintura = Column(Integer, primary_key=True, autoincrement=True)
     NombreTipoPintura = Column(String(100), nullable=False)
-    CreatedAt = Column(DateTime, server_default=func.now(), nullable=False)
-    UpdatedAt = Column(DateTime, server_default=func.now(), onupdate=func.now(), nullable=False)
+    CreatedAt = Column(DateTime, default=func.now())
+    UpdatedAt = Column(DateTime, default=func.now(), onupdate=func.now())
 
     inventarios = relationship("Inventario", back_populates="tipo_pintura")

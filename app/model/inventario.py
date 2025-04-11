@@ -21,3 +21,5 @@ class Inventario(Base):
 
     tipo_pintura = relationship("TipoPintura", back_populates="inventarios")
     vehiculos_inventarios = relationship("VehiculoInventario", back_populates="inventario")
+    movimientos = relationship("Movimiento", back_populates="inventario")
+

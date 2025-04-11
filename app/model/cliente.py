@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from app.database import Base
 
@@ -13,3 +14,5 @@ class Cliente(Base):
     Direccion = Column(String(150), nullable=False)
     CreatedAt = Column(DateTime, server_default=func.now(), nullable=False)
     UpdatedAt = Column(DateTime, server_default=func.now(), onupdate=func.now(), nullable=False)
+    
+    ventas = relationship("Venta", back_populates="cliente")

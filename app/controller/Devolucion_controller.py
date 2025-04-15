@@ -14,10 +14,10 @@ def get_db():
     finally:
         db.close()
 
-@router.get("/GET/pintura/devolucion", response_model=List[DevolucionResponse])
+@router.get("/pintura/GET/devolucion", response_model=List[DevolucionResponse])
 def listar_devoluciones(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     return obtener_devoluciones(db, skip, limit)
 
-@router.post("/POST/pintura/devolucion", response_model=DevolucionResponse)
+@router.post("/pintura/POST/devolucion", response_model=DevolucionResponse)
 def crear_una_devolucion(devolucion: DevolucionCreate, db: Session = Depends(get_db)):
     return crear_devolucion(db, devolucion)

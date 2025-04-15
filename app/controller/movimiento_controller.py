@@ -14,15 +14,15 @@ def get_db():
     finally:
         db.close()
 
-@router.get("/GET/pintura/movimiento", response_model=List[MovimientoResponse])
+@router.get("/pintura/GET/movimiento", response_model=List[MovimientoResponse])
 def listar_movimientos(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     return obtener_movimientos(db, skip, limit)
 
-@router.post("/POST/pintura/movimiento", response_model=MovimientoResponse)
+@router.post("/pintura/POST/movimiento", response_model=MovimientoResponse)
 def crear_un_movimiento(movimiento: MovimientoCreate, db: Session = Depends(get_db)):
     return crear_movimiento(db, movimiento)
 
-@router.put("/PUT/pintura/movimiento/{movimiento_id}", response_model=MovimientoResponse)
+@router.put("/pintura/PUT/movimiento/{movimiento_id}", response_model=MovimientoResponse)
 def actualizar_un_movimiento(movimiento_id: int, movimiento: MovimientoCreate, db: Session = Depends(get_db)):
     movimiento_actualizado = actualizar_movimiento(db, movimiento_id, movimiento)
     if not movimiento_actualizado:

@@ -10,6 +10,9 @@ from app.controller.cliente_controller import router as cliente_router #temporal
 from app.controller.Devolucion_controller import router as Devolucion_router
 from app.controller.Detalleventa_controller import router as DetalleVenta_router
 from app.controller.movimiento_controller import router as Movimiento_router
+from app.controller.psvcontroller import router as precio_servicio
+from app.controller.broker_controller import router as broker_router #broker
+
 
 app = FastAPI(
     title="API de Pintura",
@@ -27,7 +30,10 @@ app.include_router(inventario_router, tags=["Inventarios"])
 app.include_router(vehiculoinventario_router, tags=["Vehículo Inventarios"])
 app.include_router(Devolucion_router, tags= ["Devoluciones"])
 app.include_router(DetalleVenta_router, tags = ["Detalle Venta"])
-app.include_router(Movimiento_router, tags = ["Detalle Venta"])
+app.include_router(Movimiento_router, tags = ["Movimiento"])
+app.include_router(precio_servicio, tags = ["Precio Servicio"])
+app.include_router(broker_router, tags=["Broker"]) #broker
+
 
 
 @app.get("/")

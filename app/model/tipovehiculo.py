@@ -12,3 +12,4 @@ class TipoVehiculo(Base):
     UpdatedAt = Column(DateTime, server_default=func.now(), onupdate=func.now(), nullable=False)
 
     vehiculos_inventarios = relationship("VehiculoInventario", back_populates="tipo_vehiculo")
+    precios_servicio = relationship("PrecioServicioVehiculo", back_populates="tipo_vehiculo")

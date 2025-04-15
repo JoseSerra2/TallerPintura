@@ -10,7 +10,7 @@ class Inventario(Base):
     TipoInventario = Column(Integer, nullable=False)  # Cambié el tipo a Integer para que coincida con la tabla
     NombreProducto = Column(String(100), nullable=False)
     idTipoPintura = Column(Integer, ForeignKey("TipoPintura.idTipoPintura"), nullable=True)
-    Lote = Column(String(50), nullable=True)  # Lote agregado
+    Lote = Column(String(50), nullable=True)  
     CodigoColor = Column(String(100), nullable=True)
     CantidadDisponible = Column(Integer, nullable = False)
     FechaAdquisicion = Column(Date, nullable=True)  # FechaAdquisicion agregado

@@ -16,17 +16,17 @@ def get_db():
         db.close()
 
 
-@router.get("/GET/vehiculoinventarios", response_model=List[VehiculoInventarioSchema])
+@router.get("/pintura/GET/vehiculoinventarios", response_model=List[VehiculoInventarioSchema])
 def listar_vehiculoinventarios(db: Session = Depends(get_db)):
     return get_vehiculoinventarios(db)
 
 
-@router.post("/POST/vehiculoinventarios", response_model=VehiculoInventarioSchema)
+@router.post("/pintura/POST/vehiculoinventarios", response_model=VehiculoInventarioSchema)
 def crear_vehiculoinventario(vehiculo_inventario: VehiculoInventarioCreate, db: Session = Depends(get_db)):
     return create_vehiculoinventario(db, vehiculo_inventario)
 
 
-@router.put("/PUT/vehiculoinventarios/{idVehiculoInventario}", response_model=VehiculoInventarioSchema)
+@router.put("/pintura/PUT/vehiculoinventarios/{idVehiculoInventario}", response_model=VehiculoInventarioSchema)
 def actualizar_vehiculoinventario(idVehiculoInventario: int, vehiculo_inventario_data: VehiculoInventarioUpdate, db: Session = Depends(get_db)):
     vehiculo_inventario_actualizado = update_vehiculoinventario(db, idVehiculoInventario, vehiculo_inventario_data)
     if not vehiculo_inventario_actualizado:

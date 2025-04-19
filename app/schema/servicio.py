@@ -1,11 +1,14 @@
 from pydantic import BaseModel
 from typing import Optional
+from datetime import date, datetime
 
 class ServicioSchema(BaseModel):
     idServicio: int
     NombreServicio: str
     DescripcionServicio: str
     ValidoDev: bool
+    CreatedAt: datetime
+    UpdatedAt: datetime
 
     class Config:
         orm_mode = True

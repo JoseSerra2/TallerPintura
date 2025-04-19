@@ -4,7 +4,7 @@ import httpx
 
 router = APIRouter()
 
-@router.post("/broker")
+@router.post("/broker/api/rest")
 async def broker_handler(request: Request):
     try:
         body = await request.json()

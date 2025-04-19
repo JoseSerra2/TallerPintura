@@ -8,6 +8,8 @@ class VehiculoInventarioSchema(BaseModel):
     CantidadRequerida: float
     idTipoVehiculo: int
     idInventario: int
+    CreatedAt: datetime
+    UpdatedAt: datetime
 
     class Config:
         orm_mode = True

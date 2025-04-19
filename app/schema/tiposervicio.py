@@ -7,7 +7,9 @@ from datetime import datetime
 class TipoServicioSchema(BaseModel):
     idTipoServicio: int
     NombreTipo: str
-    idServicio: Optional[int]  
+    idServicio: Optional[int]
+    CreatedAt: datetime
+    UpdatedAt: datetime  
 
     class Config:
         orm_mode = True

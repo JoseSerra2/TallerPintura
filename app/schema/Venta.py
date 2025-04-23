@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 
 class VentaBase(BaseModel):
     idCliente: Optional[int]
@@ -24,3 +24,22 @@ class VentaUpdate(VentaBase):
 
     class Config:
         orm_mode = True  
+        
+class DetalleProducto(BaseModel):
+    Producto: str
+    Cantidad: int
+    Precio: float
+    Descuento: float  # en decimal: 0.30 -> 30%
+
+class MetodoPago(BaseModel):
+    NoTarjeta: Optional[str]
+    IdMetodo: str
+    Monto: float
+    IdBanco: Optional[str]
+
+class VentaConPagoRequest(BaseModel):
+    Nit: str
+    IdCaja: str
+    IdServicioTransaccion: str
+    Detalle: List[DetalleProducto]
+    MetodosPago: List[MetodoPago]

@@ -6,7 +6,6 @@ from app.controller.tipopintura_controller import router as tipopintura_router
 from app.controller.tiposervicio_controller import router as tiposervicio_router
 from app.controller.inventario_controller import router as inventario_router
 from app.controller.vehiculoinventario_controller import router as vehiculoinventario_router
-from app.controller.cliente_controller import router as cliente_router #temporal
 from app.controller.Devolucion_controller import router as Devolucion_router
 from app.controller.Detalleventa_controller import router as DetalleVenta_router
 from app.controller.movimiento_controller import router as Movimiento_router
@@ -20,7 +19,6 @@ app = FastAPI(
     version="1.0"
 )
 
-app.include_router(cliente_router, tags=["Clientes"]) #temporal
 app.include_router(servicio_router, tags=["Servicios"])  
 app.include_router(Venta_router, tags=["Venta"])  
 app.include_router(tipovehiculo_router, tags=["Tipos de Vehículos"])

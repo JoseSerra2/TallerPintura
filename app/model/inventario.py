@@ -18,6 +18,7 @@ class Inventario(Base):
     EstadoInventario = Column(Boolean, nullable=False)  # EstadoInventario agregado
     CreatedAt = Column(DateTime, server_default=func.now(), nullable=False)
     UpdatedAt = Column(DateTime, server_default=func.now(), onupdate=func.now(), nullable=False)
+    deleted = Column(Boolean, default=False, nullable=False)
 
     tipo_pintura = relationship("TipoPintura", back_populates="inventarios")
     vehiculos_inventarios = relationship("VehiculoInventario", back_populates="inventario")

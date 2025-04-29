@@ -7,6 +7,7 @@ class MovimientoBase(BaseModel):
     TipoMovimiento: str
     Cantidad: int
     FechaMovimiento: datetime
+    deleted: Optional[bool] = False
 
 class MovimientoCreate(MovimientoBase):
     pass
@@ -15,6 +16,7 @@ class MovimientoResponse(MovimientoBase):
     idMovimiento: int
     CreatedAt: datetime
     UpdatedAt: datetime
+    deleted: Optional[bool] = False
 
     class Config:
         from_attributes = True

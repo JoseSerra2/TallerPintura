@@ -14,6 +14,8 @@ class DetalleVenta(Base):
     Devolucion = Column(Boolean, nullable=False)
     CreatedAt = Column(DateTime, server_default=func.now(), nullable=False)
     UpdatedAt = Column(DateTime, server_default=func.now(), onupdate=func.now(), nullable=False)
+    deleted = Column(Boolean, default=False, nullable=False)
+
 
     venta = relationship("Venta", back_populates="detalles")
     servicio = relationship("Servicio", back_populates="detalles")

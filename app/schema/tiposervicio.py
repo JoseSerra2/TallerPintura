@@ -9,7 +9,8 @@ class TipoServicioSchema(BaseModel):
     NombreTipo: str
     idServicio: Optional[int]
     CreatedAt: datetime
-    UpdatedAt: datetime  
+    UpdatedAt: datetime
+    deleted: Optional[bool] = False  
 
     class Config:
         orm_mode = True
@@ -18,8 +19,10 @@ class TipoServicioSchema(BaseModel):
 class TipoServicioCreate(BaseModel):
     NombreTipo: str
     idServicio: Optional[int] = None
+    deleted: Optional[bool] = False
 
 
 class TipoServicioUpdate(BaseModel):
     NombreTipo: Optional[str] = None
     idServicio: Optional[int] = None
+    deleted: Optional[bool] = False

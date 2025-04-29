@@ -8,6 +8,7 @@ class DetalleVentaBase(BaseModel):
     Cantidad: int
     Subtotal: float
     Devolucion: bool
+    deleted: Optional[bool] = False
 
 class DetalleVentaCreate(DetalleVentaBase):
     pass
@@ -16,6 +17,7 @@ class DetalleVentaUpdate(BaseModel):
     Cantidad: Optional[int] = None
     Subtotal: Optional[float] = None
     Devolucion: Optional[bool] = None
+    deleted: Optional[bool] = False
 
 class DetalleVentaResponse(DetalleVentaBase):
     idDetalleVenta: int

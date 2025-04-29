@@ -6,6 +6,7 @@ class DevolucionBase(BaseModel):
     FechaDevolucion: datetime
     Motivo: str
     idDetalleVenta: Optional[int]
+    deleted: Optional[bool] = False
 
 class DevolucionCreate(DevolucionBase):
     pass

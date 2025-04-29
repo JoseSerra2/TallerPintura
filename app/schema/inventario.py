@@ -15,6 +15,7 @@ class InventarioSchema(BaseModel):
     FechaAdquisicion: Optional[date] = None
     FechaVencimiento: Optional[date] = None
     EstadoInventario: bool
+    deleted: Optional[bool] = False
 
     class Config:
         orm_mode = True
@@ -30,6 +31,7 @@ class InventarioCreate(BaseModel):
     FechaAdquisicion: Optional[date] = None
     FechaVencimiento: Optional[date] = None
     EstadoInventario: bool
+    deleted: Optional[bool] = False
 
 
 class InventarioUpdate(BaseModel):
@@ -42,6 +44,7 @@ class InventarioUpdate(BaseModel):
     FechaAdquisicion: Optional[date] = None
     FechaVencimiento: Optional[date] = None
     EstadoInventario: Optional[bool] = None
+    deleted: Optional[bool] = False
 
 
 # ----------- SOLICITUD DE INVENTARIO Y ACCIONES -----------

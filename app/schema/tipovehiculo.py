@@ -8,6 +8,7 @@ class TipoVehiculoSchema(BaseModel):
     NombreTipoVehiculo: str
     CreatedAt: datetime
     UpdatedAt: datetime
+    deleted: Optional[bool] = False
 
     class Config:
         orm_mode = True
@@ -15,7 +16,9 @@ class TipoVehiculoSchema(BaseModel):
 
 class TipoVehiculoCreate(BaseModel):
     NombreTipoVehiculo: str
+    deleted: Optional[bool] = False
 
 
 class TipoVehiculoUpdate(BaseModel):
     NombreTipoVehiculo: Optional[str] = None
+    deleted: Optional[bool] = False

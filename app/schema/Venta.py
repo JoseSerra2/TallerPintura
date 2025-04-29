@@ -5,6 +5,7 @@ from typing import Optional, List
 class VentaBase(BaseModel):
     idCliente: Optional[int]
     TotalVenta: float
+    deleted: Optional[bool] = False
 
 class VentaCreate(VentaBase):
     pass
@@ -20,7 +21,8 @@ class VentaResponse(VentaBase):
 
 class VentaUpdate(VentaBase):
     idCliente: Optional[int] = None  
-    TotalVenta: Optional[float] = None  
+    TotalVenta: Optional[float] = None 
+    deleted: Optional[bool] = False 
 
     class Config:
         orm_mode = True  

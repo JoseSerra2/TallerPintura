@@ -47,21 +47,21 @@ def crear_una_venta_con_pago(venta: VentaConPagoRequest, db: Session = Depends(g
     total = 0
     detalles_a_guardar = []
 
-    for item in venta.Detalle:
-        producto_normalizado = item.Producto.strip().lower()
+    for item in venta.factura.detalle:
+        producto_normalizado = item.producto.strip().lower()
 
         if producto_normalizado not in nombres_validos:
             raise HTTPException(
                 status_code=400,
-                detail=f"Producto '{item.Producto}' no coincide con ningún servicio registrado."
+                detail=f"Producto '{item.producto}' no coincide con ningún servicio registrado."
             )
 
-        subtotal = (item.Precio - item.Descuento) * item.Cantidad
+        subtotal = (item.precio - item.descuento) * item.cantidad
         total += subtotal
 
         detalles_a_guardar.append({
             "idServicio": nombres_validos[producto_normalizado],
-            "Cantidad": item.Cantidad,
+            "Cantidad": item.cantidad,
             "Subtotal": subtotal
         })
 

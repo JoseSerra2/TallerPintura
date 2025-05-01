@@ -25,7 +25,6 @@ def listar_ventas(skip: int = 0, limit: int = 10, db: Session = Depends(get_db))
 @router.post("/pintura/POST/venta", response_model=VentaResponse)
 def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_db)):
     try:
-        # 1. Reenviar solicitud a Mockoon (servicio de pagos)
         detalle_pago = [
             {
                 "producto": item.Producto,
@@ -60,20 +59,16 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
         if "factura" not in data:
             raise HTTPException(status_code=400, detail="Respuesta inválida del servicio de pagos")
 
-        # 2. Crear nuevo objeto tipo VentaConPagoRequest usando la respuesta de Mockoon
-        from app.schema.Venta import VentaCreate  # Necesitamos VentaCreate para crear la venta
+        from app.schema.Venta import VentaCreate
 
-        # Crear el objeto de venta que acepta la base de datos (VentaCreate)
         venta_create = VentaCreate(
-            idCliente=data["factura"]["cliente"]["idCliente"],  # Asumimos que idCliente es parte de la factura
-            TotalVenta=data["factura"]["totalDescontado"]  # Asumimos que totalDescontado es el total de la venta
+            idCliente=data["factura"]["cliente"]["idCliente"],
+            TotalVenta=data["factura"]["totalDescontado"]
         )
 
-        # 3. Llamar internamente a la función existente para crear la venta con la factura
         nueva_venta = crear_venta(db, venta_create)
         
         for item in data["factura"]["detalle"]:
-            # Buscar el servicio por nombre (Producto)
             servicio = db.query(Servicio).filter(Servicio.NombreServicio == item["Producto"]).first()
             if not servicio:
                 raise HTTPException(status_code=404, detail=f"Servicio '{item['Producto']}' no encontrado")
@@ -85,12 +80,11 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
                 idServicio=servicio.idServicio,
                 Cantidad=item["Cantidad"],
                 Subtotal=subtotal,
-                Devolucion=servicio.ValidoDev,  # o servicio.esDevolucion según tu modelo
+                Devolucion=servicio.ValidoDev,
                 deleted=False
             )
             crear_detalle(db, detalle_create)
 
-        # Si necesitas realizar algún procesamiento adicional con la factura o metodos de pago, hazlo aquí
         return nueva_venta
 
     except Exception as e:

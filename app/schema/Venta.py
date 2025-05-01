@@ -38,18 +38,6 @@ class MetodoPago(BaseModel):
     IdMetodo: str
     Monto: float
     IdBanco: Optional[str]
-        
-class DetalleProducto(BaseModel):
-    producto: str
-    cantidad: int
-    precio: float
-    descuento: float  # en decimal: 0.30 -> 30%
-
-class MetodoPago(BaseModel):
-    NoTarjeta: Optional[str]
-    IdMetodo: str
-    Monto: float
-    IdBanco: Optional[str]
 
 class FacturaEmpresa(BaseModel):
     nitEmpresa: str
@@ -58,7 +46,7 @@ class FacturaEmpresa(BaseModel):
     direccionEmpresa: str
 
 class FacturaCliente(BaseModel):
-    idCliente: str
+    idCliente: int
     nitCliente: str
     nombreCliente: str
     apellidoCliente: str
@@ -84,4 +72,17 @@ class VentaConPagoRequest(BaseModel):
     IdServicioTransaccion: str
     noAutorizacion: str
     factura: Factura
+    MetodosPago: List[MetodoPago]
+    
+class VentaSimpleDetalle(BaseModel):
+    Producto: str
+    Cantidad: str
+    Precio: str
+    Descuento: str
+
+class VentaSimpleRequest(BaseModel):
+    Nit: str
+    IdCaja: str
+    IdServicioTransaccion: str
+    Detalle: List[VentaSimpleDetalle]
     MetodosPago: List[MetodoPago]

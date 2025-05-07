@@ -6,6 +6,7 @@ from app.service.Venta_service import crear_venta, obtener_ventas, actualizar_ve
 from app.service.DetalleVenta_service import crear_detalle
 from app.schema.Venta import VentaResponse, VentaUpdate
 from app.schema.Detalle_Venta import DetalleVentaCreate
+from app.schema.Venta import VentaCreate
 import httpx
 from app.model.servicio import Servicio
 from app.schema.Venta import VentaSimpleRequest
@@ -25,12 +26,20 @@ def listar_ventas(skip: int = 0, limit: int = 10, db: Session = Depends(get_db))
 @router.post("/pintura/POST/venta", response_model=VentaResponse)
 def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_db)):
     try:
+        # Validar Detalle
+        for item in venta.Detalle:
+            if not item.Producto:
+                raise HTTPException(status_code=400, detail="Campo 'Producto' vacío en detalle de venta")
+            if item.Cantidad <= 0 or item.Precio <= 0:
+                raise HTTPException(status_code=400, detail=f"Cantidad o Precio inválido para el producto: {item.Producto}")
+
+        # Preparar detalle para pagos
         detalle_pago = [
             {
-                "producto": item.Producto,
-                "cantidad": item.Cantidad,
-                "precio": item.Precio,
-                "descuento": item.Descuento
+                "Producto": item.Producto,
+                "Cantidad": item.Cantidad,
+                "Precio": item.Precio,
+                "Descuento": item.Descuento
             }
             for item in venta.Detalle
         ]
@@ -39,7 +48,7 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
             {
                 "NoTarjeta": mp.NoTarjeta or "",
                 "IdMetodo": mp.IdMetodo,
-                "Monto": str(mp.Monto),
+                "Monto": mp.Monto,
                 "IdBanco": mp.IdBanco or ""
             }
             for mp in venta.MetodosPago
@@ -53,32 +62,65 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
             "MetodosPago": metodos_pago
         }
 
-        response = httpx.post("http://localhost:3001/pagos/validar", json=data_para_pago)
-        data = response.json()
+        print("📤 Enviando datos al servicio de pagos:")
+        print(data_para_pago)
 
-        if "factura" not in data:
-            raise HTTPException(status_code=400, detail="Respuesta inválida del servicio de pagos")
+        # Llamada al servicio de pagos
+        try:
+            response = httpx.post("http://137.184.115.238/pagos/transacciones/crear", json=data_para_pago)
+            response.raise_for_status()
+        except httpx.HTTPStatusError as e:
+            print(f"❌ Error HTTP al contactar servicio de pagos: {e.response.status_code}")
+            print(f"📩 Respuesta de error: {e.response.text}")
+            raise HTTPException(status_code=e.response.status_code, detail=f"Servicio de pagos rechazó la solicitud: {e.response.text}")
+        except httpx.RequestError as e:
+            print(f"❌ Error de conexión al servicio de pagos: {e}")
+            raise HTTPException(status_code=500, detail=f"No se pudo conectar al servicio de pagos: {str(e)}")
 
-        from app.schema.Venta import VentaCreate
+        try:
+            data = response.json()
+        except Exception as e:
+            print("❌ No se pudo interpretar la respuesta JSON del servicio de pagos")
+            raise HTTPException(status_code=500, detail=f"Respuesta inválida del servicio de pagos: {response.text}")
+
+        print("✅ Respuesta recibida de pagos:", data)
+
+        if "factura" not in data or "cliente" not in data["factura"]:
+            raise HTTPException(status_code=500, detail=f"Respuesta incompleta del servicio de pagos: {data}")
 
         venta_create = VentaCreate(
             idCliente=data["factura"]["cliente"]["idCliente"],
-            TotalVenta=data["factura"]["totalDescontado"]
+            TotalVenta=data["factura"]["total"]
         )
 
         nueva_venta = crear_venta(db, venta_create)
-        
-        for item in data["factura"]["detalle"]:
-            servicio = db.query(Servicio).filter(Servicio.NombreServicio == item["Producto"]).first()
-            if not servicio:
-                raise HTTPException(status_code=404, detail=f"Servicio '{item['Producto']}' no encontrado")
 
-            subtotal = (item["Cantidad"] * item["Precio"]) - item["Descuento"]
+        for item in data["factura"]["detalle"]:
+            # Normaliza claves a minúsculas
+            detalle_normalizado = {k.lower(): v for k, v in item.items()}
+
+            if "producto" not in detalle_normalizado:
+                raise HTTPException(status_code=500, detail=f"Detalle sin campo 'Producto': {item}")
+
+            producto = detalle_normalizado["producto"]
+            cantidad = detalle_normalizado.get("cantidad", 0)
+            precio = detalle_normalizado.get("precio", 0)
+            descuento = detalle_normalizado.get("descuento", 0)
+
+            # Validaciones de tipo robustas
+            if not isinstance(cantidad, (int, float)) or not isinstance(precio, (int, float)) or not isinstance(descuento, (int, float)):
+                raise HTTPException(status_code=400, detail=f"Tipos inválidos en detalle: {detalle_normalizado}")
+
+            servicio = db.query(Servicio).filter(Servicio.NombreServicio == producto).first()
+            if not servicio:
+                raise HTTPException(status_code=404, detail=f"Servicio '{producto}' no encontrado")
+
+            subtotal = (item["cantidad"] * item["precio"]) - item["descuento"]
 
             detalle_create = DetalleVentaCreate(
                 idVenta=nueva_venta.idVenta,
                 idServicio=servicio.idServicio,
-                Cantidad=item["Cantidad"],
+                Cantidad=cantidad,
                 Subtotal=subtotal,
                 Devolucion=servicio.ValidoDev,
                 deleted=False
@@ -87,8 +129,13 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
 
         return nueva_venta
 
+    except HTTPException:
+        raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error reenviando a pagos: {str(e)}")
+        import traceback
+        print("❌ Error inesperado:")
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Error inesperado reenviando a pagos: {str(e)}")
 
 @router.put("/pintura/PUT/venta/{venta_id}", response_model=VentaResponse)
 def actualizar_una_venta(venta_id: int, venta: VentaUpdate, db: Session = Depends(get_db)):

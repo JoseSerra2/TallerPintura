@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import Optional, List
 
 class VentaBase(BaseModel):
-    idCliente: Optional[int]
+    idCliente: Optional[str]
     TotalVenta: float
     deleted: Optional[bool] = False
 
@@ -20,7 +20,7 @@ class VentaResponse(VentaBase):
         from_attributes = True
 
 class VentaUpdate(VentaBase):
-    idCliente: Optional[int] = None  
+    idCliente: Optional[str] = None  
     TotalVenta: Optional[float] = None 
     deleted: Optional[bool] = False 
 
@@ -46,7 +46,7 @@ class FacturaEmpresa(BaseModel):
     direccionEmpresa: str
 
 class FacturaCliente(BaseModel):
-    idCliente: int
+    idCliente: str
     nitCliente: str
     nombreCliente: str
     apellidoCliente: str
@@ -76,9 +76,9 @@ class VentaConPagoRequest(BaseModel):
     
 class VentaSimpleDetalle(BaseModel):
     Producto: str
-    Cantidad: str
-    Precio: str
-    Descuento: str
+    Cantidad: int
+    Precio: float
+    Descuento: float
 
 class VentaSimpleRequest(BaseModel):
     Nit: str

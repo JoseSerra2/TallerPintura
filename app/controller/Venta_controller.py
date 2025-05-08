@@ -115,7 +115,7 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
             if not servicio:
                 raise HTTPException(status_code=404, detail=f"Servicio '{producto}' no encontrado")
 
-            subtotal = (item["cantidad"] * item["precio"]) - item["descuento"]
+            subtotal = item["cantidad"] * item["precio"] * (1 - item["descuento"])
 
             detalle_create = DetalleVentaCreate(
                 idVenta=nueva_venta.idVenta,

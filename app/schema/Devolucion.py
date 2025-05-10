@@ -14,7 +14,6 @@ class DevolucionCreate(DevolucionBase):
 class DevolucionResponse(DevolucionBase):
     idDevolucion: int
     CreatedAt: datetime
-    UpdatedAt: datetime
 
     class Config:
         from_attributes = True

@@ -38,7 +38,7 @@ def crear_una_devolucion(devolucion: DevolucionCreate, db: Session = Depends(get
 
     # Construir payload para servicio de pagos
     payload = {
-        "NoTransaccion": str(detalle.idVenta),
+        "NoTransaccion": str(detalle.venta.noTransaccion),
         "Monto": str(detalle.Subtotal),
         "Descripcion": devolucion.Motivo
     }

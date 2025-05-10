@@ -8,6 +8,7 @@ class Venta(Base):
 
     idVenta = Column(Integer, primary_key=True, autoincrement=True)
     idCliente = Column(Integer, nullable=True)
+    noTransaccion = Column(Integer, nullable=True)
     FechaVenta = Column(DateTime, server_default=func.now(), nullable=False)
     TotalVenta = Column(Numeric(10, 2), nullable=False)
     CreatedAt = Column(DateTime, server_default=func.now(), nullable=False)

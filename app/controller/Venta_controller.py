@@ -90,6 +90,7 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
 
         venta_create = VentaCreate(
             idCliente=data["factura"]["cliente"]["idCliente"],
+            noTransaccion = data["noTransaccion"],
             TotalVenta=data["factura"]["total"]
         )
 

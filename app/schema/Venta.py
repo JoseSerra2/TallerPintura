@@ -4,6 +4,7 @@ from typing import Optional, List
 
 class VentaBase(BaseModel):
     idCliente: Optional[str]
+    noTransaccion: int
     TotalVenta: float
     deleted: Optional[bool] = False
 
@@ -70,7 +71,6 @@ class VentaConPagoRequest(BaseModel):
     Nit: str
     IdCaja: str
     IdServicioTransaccion: str
-    noAutorizacion: str
     factura: Factura
     MetodosPago: List[MetodoPago]
     

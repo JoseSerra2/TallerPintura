@@ -6,7 +6,8 @@ from sqlalchemy.sql import func
 def crear_venta(db: Session, venta: VentaCreate):
     nueva_venta = Venta(
         idCliente=venta.idCliente,
-        TotalVenta=venta.TotalVenta
+        TotalVenta=venta.TotalVenta,
+        noTransaccion=venta.noTransaccion
     )
     db.add(nueva_venta)
     db.commit()

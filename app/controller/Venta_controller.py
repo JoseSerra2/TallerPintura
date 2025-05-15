@@ -1,15 +1,20 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
+from datetime import datetime
+import httpx
+
 from app.database import SessionLocal
 from app.service.Venta_service import crear_venta, obtener_ventas, actualizar_venta
 from app.service.DetalleVenta_service import crear_detalle
-from app.schema.Venta import VentaResponse, VentaUpdate
+from app.schema.Venta import VentaResponse, VentaUpdate, VentaCreate, VentaSimpleRequest
 from app.schema.Detalle_Venta import DetalleVentaCreate
-from app.schema.Venta import VentaCreate
-import httpx
 from app.model.servicio import Servicio
-from app.schema.Venta import VentaSimpleRequest
+from app.model.tipovehiculo import TipoVehiculo
+from app.model.inventario import Inventario
+from app.model.vehiculoinventario import VehiculoInventario
+from app.model.movimiento import Movimiento
+
 router = APIRouter()
 
 def get_db():
@@ -33,7 +38,7 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
             if item.Cantidad <= 0 or item.Precio <= 0:
                 raise HTTPException(status_code=400, detail=f"Cantidad o Precio inválido para el producto: {item.Producto}")
 
-        # Preparar detalle para pagos
+        # Preparar datos para el servicio de pagos
         detalle_pago = [
             {
                 "Producto": item.Producto,
@@ -90,16 +95,14 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
 
         venta_create = VentaCreate(
             idCliente=data["factura"]["cliente"]["idCliente"],
-            noTransaccion = data["noTransaccion"],
+            noTransaccion=data["noTransaccion"],
             TotalVenta=data["factura"]["total"]
         )
 
         nueva_venta = crear_venta(db, venta_create)
 
         for item in data["factura"]["detalle"]:
-            # Normaliza claves a minúsculas
             detalle_normalizado = {k.lower(): v for k, v in item.items()}
-
             if "producto" not in detalle_normalizado:
                 raise HTTPException(status_code=500, detail=f"Detalle sin campo 'Producto': {item}")
 
@@ -108,7 +111,6 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
             precio = detalle_normalizado.get("precio", 0)
             descuento = detalle_normalizado.get("descuento", 0)
 
-            # Validaciones de tipo robustas
             if not isinstance(cantidad, (int, float)) or not isinstance(precio, (int, float)) or not isinstance(descuento, (int, float)):
                 raise HTTPException(status_code=400, detail=f"Tipos inválidos en detalle: {detalle_normalizado}")
 
@@ -116,7 +118,7 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
             if not servicio:
                 raise HTTPException(status_code=404, detail=f"Servicio '{producto}' no encontrado")
 
-            subtotal = item["cantidad"] * item["precio"] * (1 - item["descuento"])
+            subtotal = cantidad * precio * (1 - descuento)
 
             detalle_create = DetalleVentaCreate(
                 idVenta=nueva_venta.idVenta,
@@ -127,6 +129,36 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
                 deleted=False
             )
             crear_detalle(db, detalle_create)
+
+        # 🔁 DESCUENTO DE INVENTARIO Y REGISTRO DE MOVIMIENTO
+        tipo_vehiculo = db.query(TipoVehiculo).filter(TipoVehiculo.NombreTipoVehiculo == venta.TipoVehiculo).first()
+        if not tipo_vehiculo:
+            raise HTTPException(status_code=404, detail=f"Tipo de vehículo '{venta.TipoVehiculo}' no encontrado")
+
+        relaciones = db.query(VehiculoInventario).filter(VehiculoInventario.idTipoVehiculo == tipo_vehiculo.idTipoVehiculo).all()
+        if not relaciones:
+            raise HTTPException(status_code=404, detail=f"No se encontraron insumos asociados al tipo de vehículo '{venta.TipoVehiculo}'")
+
+        for relacion in relaciones:
+            inventario = db.query(Inventario).filter(Inventario.idInventario == relacion.idInventario).first()
+            if not inventario:
+                continue
+
+            if inventario.CantidadDisponible < relacion.CantidadRequerida:
+                raise HTTPException(status_code=400, detail=f"Inventario insuficiente para '{inventario.NombreProducto}'")
+
+            inventario.CantidadDisponible -= relacion.CantidadRequerida
+
+            movimiento = Movimiento(
+                idInventario=inventario.idInventario,
+                TipoMovimiento="Salida",
+                Cantidad=relacion.CantidadRequerida,
+                FechaMovimiento=datetime.now(),
+                deleted=False
+            )
+            db.add(movimiento)
+
+        db.commit()
 
         return nueva_venta
 

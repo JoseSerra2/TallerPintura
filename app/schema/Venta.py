@@ -83,6 +83,7 @@ class VentaSimpleDetalle(BaseModel):
 class VentaSimpleRequest(BaseModel):
     Nit: str
     IdCaja: str
+    TipoVehiculo: str
     IdServicioTransaccion: str
     Detalle: List[VentaSimpleDetalle]
     MetodosPago: List[MetodoPago]

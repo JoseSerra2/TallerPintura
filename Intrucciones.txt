@@ -59,4 +59,8 @@ Aumentar Local:
   "idProducto": 4, == idInventario
   "cantidad": 20
 }
-
+Ingresar a docs:
+Se ingresa por medio del puerto donde se corre
+Si se corre en local por ejemplo sería en 
+Http://127.0.0.1:8000/docs
+Muestra toda la documentación de post, get y update. Como funcionan la mayoría de los json

@@ -1,0 +1,153 @@
+from sqlalchemy import (
+    Column, Integer, String, DateTime, Date, ForeignKey, DECIMAL, Boolean, Text
+)
+from sqlalchemy.orm import relationship, declarative_base
+from datetime import datetime
+
+Base = declarative_base()
+
+class Servicio(Base):
+    __tablename__ = 'servicio'
+    idServicio = Column(Integer, primary_key=True, autoincrement=True)
+    NombreServicio = Column(String(100), nullable=False)
+    DescripcionServicio = Column(String(150), nullable=False)
+    ValidoDev = Column(Boolean, nullable=False)
+    deleted = Column(Boolean, nullable=False)
+    CreatedAt = Column(DateTime, default=datetime.utcnow, nullable=False)
+    UpdatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    tiposervicios = relationship("TipoServicio", back_populates="servicio")
+    detalleventas = relationship("DetalleVenta", back_populates="servicio")
+
+class TipoServicio(Base):
+    __tablename__ = 'tiposervicio'
+    idTipoServicio = Column(Integer, primary_key=True, autoincrement=True)
+    NombreTipo = Column(String(100), nullable=False)
+    idServicio = Column(Integer, ForeignKey('servicio.idServicio'))
+    deleted = Column(Boolean, nullable=False)
+    CreatedAt = Column(DateTime, default=datetime.utcnow, nullable=False)
+    UpdatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    servicio = relationship("Servicio", back_populates="tiposervicios")
+    precios = relationship("PrecioServicioVehiculo", back_populates="tipoServicio")
+
+class TipoVehiculo(Base):
+    __tablename__ = 'tipovehiculo'
+    idTipoVehiculo = Column(Integer, primary_key=True, autoincrement=True)
+    NombreTipoVehiculo = Column(String(150), nullable=False)
+    deleted = Column(Boolean, nullable=False)
+    CreatedAt = Column(DateTime, default=datetime.utcnow, nullable=False)
+    UpdatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    precios = relationship("PrecioServicioVehiculo", back_populates="tipoVehiculo")
+    vehiculoinventarios = relationship("VehiculoInventario", back_populates="tipoVehiculo")
+
+class PrecioServicioVehiculo(Base):
+    __tablename__ = 'precioserviciovehiculo'
+    idPrecioServicioVehiculo = Column(Integer, primary_key=True, autoincrement=True)
+    idTipoServicio = Column(Integer, ForeignKey('tiposervicio.idTipoServicio'), nullable=False)
+    idTipoVehiculo = Column(Integer, ForeignKey('tipovehiculo.idTipoVehiculo'), nullable=False)
+    Precio = Column(DECIMAL(10, 2), nullable=False)
+    deleted = Column(Boolean, nullable=False)
+    CreatedAt = Column(DateTime, default=datetime.utcnow, nullable=False)
+    UpdatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    tipoServicio = relationship("TipoServicio", back_populates="precios")
+    tipoVehiculo = relationship("TipoVehiculo", back_populates="precios")
+
+class TipoPintura(Base):
+    __tablename__ = 'tipopintura'
+    idTipoPintura = Column(Integer, primary_key=True, autoincrement=True)
+    NombreTipoPintura = Column(String(100), nullable=False)
+    deleted = Column(Boolean, nullable=False)
+    CreatedAt = Column(DateTime, default=datetime.utcnow, nullable=False)
+    UpdatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    inventarios = relationship("Inventario", back_populates="tipoPintura")
+
+class Inventario(Base):
+    __tablename__ = 'inventario'
+    idInventario = Column(Integer, primary_key=True, autoincrement=True)
+    TipoInventario = Column(Integer, nullable=False)
+    NombreProducto = Column(String(100), nullable=False)
+    idTipoPintura = Column(Integer, ForeignKey('tipopintura.idTipoPintura'))
+    Lote = Column(String(50))
+    CodigoColor = Column(String(100))
+    CantidadDisponible = Column(Integer, nullable=False)
+    FechaAdquisicion = Column(Date)
+    FechaVencimiento = Column(Date)
+    EstadoInventario = Column(Boolean, nullable=False)
+    deleted = Column(Boolean, nullable=False)
+    CreatedAt = Column(DateTime, default=datetime.utcnow, nullable=False)
+    UpdatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    tipoPintura = relationship("TipoPintura", back_populates="inventarios")
+    movimientos = relationship("Movimiento", back_populates="inventario")
+    vehiculoinventarios = relationship("VehiculoInventario", back_populates="inventario")
+
+class Movimiento(Base):
+    __tablename__ = 'movimiento'
+    idMovimiento = Column(Integer, primary_key=True, autoincrement=True)
+    idInventario = Column(Integer, ForeignKey('inventario.idInventario'))
+    TipoMovimiento = Column(String(100), nullable=False)
+    Cantidad = Column(Integer, nullable=False)
+    FechaMovimiento = Column(DateTime, nullable=False)
+    deleted = Column(Boolean, nullable=False)
+    CreatedAt = Column(DateTime, default=datetime.utcnow, nullable=False)
+    UpdatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    inventario = relationship("Inventario", back_populates="movimientos")
+
+class VehiculoInventario(Base):
+    __tablename__ = 'vehiculoinventario'
+    idVehiculoInventario = Column(Integer, primary_key=True, autoincrement=True)
+    CantidadRequerida = Column(DECIMAL(10, 2), nullable=False)
+    idTipoVehiculo = Column(Integer, ForeignKey('tipovehiculo.idTipoVehiculo'))
+    idInventario = Column(Integer, ForeignKey('inventario.idInventario'))
+    deleted = Column(Boolean, nullable=False)
+    CreatedAt = Column(DateTime, default=datetime.utcnow, nullable=False)
+    UpdatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    tipoVehiculo = relationship("TipoVehiculo", back_populates="vehiculoinventarios")
+    inventario = relationship("Inventario", back_populates="vehiculoinventarios")
+
+class Venta(Base):
+    __tablename__ = 'venta'
+    idVenta = Column(Integer, primary_key=True, autoincrement=True)
+    idCliente = Column(String(50))
+    FechaVenta = Column(DateTime, default=datetime.utcnow, nullable=False)
+    TotalVenta = Column(DECIMAL(10, 2), nullable=False)
+    noTransaccion = Column(Integer)
+    deleted = Column(Boolean, nullable=False)
+    CreatedAt = Column(DateTime, default=datetime.utcnow, nullable=False)
+    UpdatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    detalleventas = relationship("DetalleVenta", back_populates="venta")
+
+class DetalleVenta(Base):
+    __tablename__ = 'detalleventa'
+    idDetalleVenta = Column(Integer, primary_key=True, autoincrement=True)
+    idVenta = Column(Integer, ForeignKey('venta.idVenta'), nullable=False)
+    idServicio = Column(Integer, ForeignKey('servicio.idServicio'), nullable=False)
+    Cantidad = Column(Integer, nullable=False)
+    Subtotal = Column(DECIMAL(10, 2), nullable=False)
+    Devolucion = Column(Boolean, nullable=False)
+    deleted = Column(Boolean, nullable=False)
+    CreatedAt = Column(DateTime, default=datetime.utcnow, nullable=False)
+    UpdatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    venta = relationship("Venta", back_populates="detalleventas")
+    servicio = relationship("Servicio", back_populates="detalleventas")
+    devoluciones = relationship("Devolucion", back_populates="detalleventa")
+
+class Devolucion(Base):
+    __tablename__ = 'devolucion'
+    idDevolucion = Column(Integer, primary_key=True, autoincrement=True)
+    FechaDevolucion = Column(Date, nullable=False)
+    Motivo = Column(String(200), nullable=False)
+    idDetalleVenta = Column(Integer, ForeignKey('detalleventa.idDetalleVenta'))
+    deleted = Column(Boolean, nullable=False)
+    CreatedAt = Column(DateTime, default=datetime.utcnow, nullable=False)
+    UpdatedAt = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    detalleventa = relationship("DetalleVenta", back_populates="devoluciones")

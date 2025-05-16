@@ -35,7 +35,7 @@ def listar_inventarios(db: Session = Depends(get_db)):
     return get_inventarios(db)
 
 
-@router.post("/pintura/POST/inventarios")
+@router.post("/pintura/POST/inventarios", response_model=InventarioSchema)
 async def manejar_inventario(request: Request, db: Session = Depends(get_db)):
     body = await request.json()
 

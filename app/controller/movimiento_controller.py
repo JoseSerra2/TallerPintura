@@ -24,7 +24,7 @@ def crear_un_movimiento(movimiento: MovimientoCreate, db: Session = Depends(get_
 
 @router.put("/pintura/PUT/movimiento/{movimiento_id}", response_model=MovimientoResponse)
 def actualizar_un_movimiento(movimiento_id: int, movimiento: MovimientoCreate, db: Session = Depends(get_db)):
-    movimiento_actualizado = actualizar_movimiento(db, movimiento_id, movimiento)
+    movimiento_actualizado = actualizar_un_movimiento(db, movimiento_id, movimiento)
     if not movimiento_actualizado:
         raise HTTPException(status_code=404, detail="Movimiento no encontrado")
     return movimiento_actualizado

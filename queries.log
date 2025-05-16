@@ -1,0 +1,331 @@
+2025-05-15 16:25:59,866 - SELECT `Servicio`.`idServicio` AS `Servicio_idServicio`, `Servicio`.`NombreServicio` AS `Servicio_NombreServicio`, `Servicio`.`DescripcionServicio` AS `Servicio_DescripcionServicio`, `Servicio`.`ValidoDev` AS `Servicio_ValidoDev`, `Servicio`.`CreatedAt` AS `Servicio_CreatedAt`, `Servicio`.`UpdatedAt` AS `Servicio_UpdatedAt`, `Servicio`.deleted AS `Servicio_deleted` 
+FROM `Servicio`
+2025-05-15 16:26:28,613 - INSERT INTO `Servicio` (`NombreServicio`, `DescripcionServicio`, `ValidoDev`, deleted) VALUES (?, ?, ?, ?) RETURNING `Servicio`.`idServicio`, `Servicio`.`CreatedAt`, `Servicio`.`UpdatedAt`
+2025-05-15 16:26:28,658 - SELECT `Servicio`.`idServicio`, `Servicio`.`NombreServicio`, `Servicio`.`DescripcionServicio`, `Servicio`.`ValidoDev`, `Servicio`.`CreatedAt`, `Servicio`.`UpdatedAt`, `Servicio`.deleted 
+FROM `Servicio` 
+WHERE `Servicio`.`idServicio` = ?
+2025-05-15 16:27:17,487 - SELECT `Servicio`.`idServicio` AS `Servicio_idServicio`, `Servicio`.`NombreServicio` AS `Servicio_NombreServicio`, `Servicio`.`DescripcionServicio` AS `Servicio_DescripcionServicio`, `Servicio`.`ValidoDev` AS `Servicio_ValidoDev`, `Servicio`.`CreatedAt` AS `Servicio_CreatedAt`, `Servicio`.`UpdatedAt` AS `Servicio_UpdatedAt`, `Servicio`.deleted AS `Servicio_deleted` 
+FROM `Servicio` 
+WHERE `Servicio`.`idServicio` = ? 
+ LIMIT ?
+2025-05-15 16:27:17,495 - UPDATE `Servicio` SET `DescripcionServicio`=?, `UpdatedAt`=now() WHERE `Servicio`.`idServicio` = ?
+2025-05-15 16:27:17,525 - SELECT `Servicio`.`idServicio`, `Servicio`.`NombreServicio`, `Servicio`.`DescripcionServicio`, `Servicio`.`ValidoDev`, `Servicio`.`CreatedAt`, `Servicio`.`UpdatedAt`, `Servicio`.deleted 
+FROM `Servicio` 
+WHERE `Servicio`.`idServicio` = ?
+2025-05-15 16:28:19,725 - SELECT `TipoVehiculo`.`idTipoVehiculo` AS `TipoVehiculo_idTipoVehiculo`, `TipoVehiculo`.`NombreTipoVehiculo` AS `TipoVehiculo_NombreTipoVehiculo`, `TipoVehiculo`.`CreatedAt` AS `TipoVehiculo_CreatedAt`, `TipoVehiculo`.`UpdatedAt` AS `TipoVehiculo_UpdatedAt`, `TipoVehiculo`.deleted AS `TipoVehiculo_deleted` 
+FROM `TipoVehiculo`
+2025-05-15 16:28:36,624 - INSERT INTO `TipoVehiculo` (`NombreTipoVehiculo`, deleted) VALUES (?, ?) RETURNING `TipoVehiculo`.`idTipoVehiculo`, `TipoVehiculo`.`CreatedAt`, `TipoVehiculo`.`UpdatedAt`
+2025-05-15 16:28:36,637 - SELECT `TipoVehiculo`.`idTipoVehiculo`, `TipoVehiculo`.`NombreTipoVehiculo`, `TipoVehiculo`.`CreatedAt`, `TipoVehiculo`.`UpdatedAt`, `TipoVehiculo`.deleted 
+FROM `TipoVehiculo` 
+WHERE `TipoVehiculo`.`idTipoVehiculo` = ?
+2025-05-15 16:28:51,194 - SELECT `TipoVehiculo`.`idTipoVehiculo` AS `TipoVehiculo_idTipoVehiculo`, `TipoVehiculo`.`NombreTipoVehiculo` AS `TipoVehiculo_NombreTipoVehiculo`, `TipoVehiculo`.`CreatedAt` AS `TipoVehiculo_CreatedAt`, `TipoVehiculo`.`UpdatedAt` AS `TipoVehiculo_UpdatedAt`, `TipoVehiculo`.deleted AS `TipoVehiculo_deleted` 
+FROM `TipoVehiculo` 
+WHERE `TipoVehiculo`.`idTipoVehiculo` = ? 
+ LIMIT ?
+2025-05-15 16:28:51,199 - SELECT `TipoVehiculo`.`idTipoVehiculo`, `TipoVehiculo`.`NombreTipoVehiculo`, `TipoVehiculo`.`CreatedAt`, `TipoVehiculo`.`UpdatedAt`, `TipoVehiculo`.deleted 
+FROM `TipoVehiculo` 
+WHERE `TipoVehiculo`.`idTipoVehiculo` = ?
+2025-05-15 16:29:13,816 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-15 16:29:42,976 - INSERT INTO `Inventario` (`TipoInventario`, `NombreProducto`, `idTipoPintura`, `Lote`, `CodigoColor`, `CantidadDisponible`, `FechaAdquisicion`, `FechaVencimiento`, `EstadoInventario`, deleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING `Inventario`.`idInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`
+2025-05-15 16:29:42,996 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-15 16:32:14,237 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? 
+ LIMIT ?
+2025-05-15 16:33:01,826 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? 
+ LIMIT ?
+2025-05-15 16:33:01,830 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-15 16:33:11,406 - SELECT `Venta`.`idVenta` AS `Venta_idVenta`, `Venta`.`idCliente` AS `Venta_idCliente`, `Venta`.`noTransaccion` AS `Venta_noTransaccion`, `Venta`.`FechaVenta` AS `Venta_FechaVenta`, `Venta`.`TotalVenta` AS `Venta_TotalVenta`, `Venta`.`CreatedAt` AS `Venta_CreatedAt`, `Venta`.`UpdatedAt` AS `Venta_UpdatedAt`, `Venta`.deleted AS `Venta_deleted` 
+FROM `Venta` 
+ LIMIT ?, ?
+2025-05-15 16:33:28,517 - HTTP Request: POST http://137.184.115.238/pagos/transacciones/crear "HTTP/1.1 201 Created"
+2025-05-15 16:33:28,523 - INSERT INTO `Venta` (`idCliente`, `noTransaccion`, `TotalVenta`, deleted) VALUES (?, ?, ?, ?) RETURNING `Venta`.`idVenta`, `Venta`.`FechaVenta`, `Venta`.`CreatedAt`, `Venta`.`UpdatedAt`
+2025-05-15 16:33:28,535 - SELECT `Venta`.`idVenta`, `Venta`.`idCliente`, `Venta`.`noTransaccion`, `Venta`.`FechaVenta`, `Venta`.`TotalVenta`, `Venta`.`CreatedAt`, `Venta`.`UpdatedAt`, `Venta`.deleted 
+FROM `Venta` 
+WHERE `Venta`.`idVenta` = ?
+2025-05-15 16:33:28,539 - SELECT `Servicio`.`idServicio` AS `Servicio_idServicio`, `Servicio`.`NombreServicio` AS `Servicio_NombreServicio`, `Servicio`.`DescripcionServicio` AS `Servicio_DescripcionServicio`, `Servicio`.`ValidoDev` AS `Servicio_ValidoDev`, `Servicio`.`CreatedAt` AS `Servicio_CreatedAt`, `Servicio`.`UpdatedAt` AS `Servicio_UpdatedAt`, `Servicio`.deleted AS `Servicio_deleted` 
+FROM `Servicio` 
+WHERE `Servicio`.`NombreServicio` = ? 
+ LIMIT ?
+2025-05-15 16:33:28,549 - INSERT INTO `DetalleVenta` (`idVenta`, `idServicio`, `Cantidad`, `Subtotal`, `Devolucion`, deleted) VALUES (?, ?, ?, ?, ?, ?) RETURNING `DetalleVenta`.`idDetalleVenta`, `DetalleVenta`.`CreatedAt`, `DetalleVenta`.`UpdatedAt`
+2025-05-15 16:33:28,564 - SELECT `DetalleVenta`.`idDetalleVenta`, `DetalleVenta`.`idVenta`, `DetalleVenta`.`idServicio`, `DetalleVenta`.`Cantidad`, `DetalleVenta`.`Subtotal`, `DetalleVenta`.`Devolucion`, `DetalleVenta`.`CreatedAt`, `DetalleVenta`.`UpdatedAt`, `DetalleVenta`.deleted 
+FROM `DetalleVenta` 
+WHERE `DetalleVenta`.`idDetalleVenta` = ?
+2025-05-15 16:33:28,570 - SELECT `TipoVehiculo`.`idTipoVehiculo` AS `TipoVehiculo_idTipoVehiculo`, `TipoVehiculo`.`NombreTipoVehiculo` AS `TipoVehiculo_NombreTipoVehiculo`, `TipoVehiculo`.`CreatedAt` AS `TipoVehiculo_CreatedAt`, `TipoVehiculo`.`UpdatedAt` AS `TipoVehiculo_UpdatedAt`, `TipoVehiculo`.deleted AS `TipoVehiculo_deleted` 
+FROM `TipoVehiculo` 
+WHERE `TipoVehiculo`.`NombreTipoVehiculo` = ? 
+ LIMIT ?
+2025-05-15 16:33:28,575 - SELECT `VehiculoInventario`.`idVehiculoInventario` AS `VehiculoInventario_idVehiculoInventario`, `VehiculoInventario`.`CantidadRequerida` AS `VehiculoInventario_CantidadRequerida`, `VehiculoInventario`.`idTipoVehiculo` AS `VehiculoInventario_idTipoVehiculo`, `VehiculoInventario`.`idInventario` AS `VehiculoInventario_idInventario`, `VehiculoInventario`.`CreatedAt` AS `VehiculoInventario_CreatedAt`, `VehiculoInventario`.`UpdatedAt` AS `VehiculoInventario_UpdatedAt`, `VehiculoInventario`.deleted AS `VehiculoInventario_deleted` 
+FROM `VehiculoInventario` 
+WHERE `VehiculoInventario`.`idTipoVehiculo` = ?
+2025-05-15 16:33:28,586 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? 
+ LIMIT ?
+2025-05-15 16:33:28,590 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-15 16:33:28,596 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-15 16:33:28,607 - SELECT `Venta`.`idVenta` AS `Venta_idVenta`, `Venta`.`idCliente` AS `Venta_idCliente`, `Venta`.`noTransaccion` AS `Venta_noTransaccion`, `Venta`.`FechaVenta` AS `Venta_FechaVenta`, `Venta`.`TotalVenta` AS `Venta_TotalVenta`, `Venta`.`CreatedAt` AS `Venta_CreatedAt`, `Venta`.`UpdatedAt` AS `Venta_UpdatedAt`, `Venta`.deleted AS `Venta_deleted` 
+FROM `Venta` 
+WHERE `Venta`.`idVenta` = ?
+2025-05-15 16:34:22,880 - SELECT `Venta`.`idVenta` AS `Venta_idVenta`, `Venta`.`idCliente` AS `Venta_idCliente`, `Venta`.`noTransaccion` AS `Venta_noTransaccion`, `Venta`.`FechaVenta` AS `Venta_FechaVenta`, `Venta`.`TotalVenta` AS `Venta_TotalVenta`, `Venta`.`CreatedAt` AS `Venta_CreatedAt`, `Venta`.`UpdatedAt` AS `Venta_UpdatedAt`, `Venta`.deleted AS `Venta_deleted` 
+FROM `Venta` 
+WHERE `Venta`.`idVenta` = ? 
+ LIMIT ?
+2025-05-15 16:34:22,885 - UPDATE `Venta` SET `UpdatedAt`=now() WHERE `Venta`.`idVenta` = ?
+2025-05-15 16:34:22,893 - SELECT `Venta`.`idVenta`, `Venta`.`idCliente`, `Venta`.`noTransaccion`, `Venta`.`FechaVenta`, `Venta`.`TotalVenta`, `Venta`.`CreatedAt`, `Venta`.`UpdatedAt`, `Venta`.deleted 
+FROM `Venta` 
+WHERE `Venta`.`idVenta` = ?
+2025-05-15 16:34:54,012 - SELECT `TipoPintura`.`idTipoPintura` AS `TipoPintura_idTipoPintura`, `TipoPintura`.`NombreTipoPintura` AS `TipoPintura_NombreTipoPintura`, `TipoPintura`.`CreatedAt` AS `TipoPintura_CreatedAt`, `TipoPintura`.`UpdatedAt` AS `TipoPintura_UpdatedAt`, `TipoPintura`.deleted AS `TipoPintura_deleted` 
+FROM `TipoPintura`
+2025-05-15 16:35:08,363 - INSERT INTO `TipoPintura` (`NombreTipoPintura`, `CreatedAt`, `UpdatedAt`, deleted) VALUES (?, now(), now(), ?) RETURNING `TipoPintura`.`idTipoPintura`, `TipoPintura`.`CreatedAt`, `TipoPintura`.`UpdatedAt`
+2025-05-15 16:35:08,372 - SELECT `TipoPintura`.`idTipoPintura`, `TipoPintura`.`NombreTipoPintura`, `TipoPintura`.`CreatedAt`, `TipoPintura`.`UpdatedAt`, `TipoPintura`.deleted 
+FROM `TipoPintura` 
+WHERE `TipoPintura`.`idTipoPintura` = ?
+2025-05-15 16:35:20,820 - SELECT `TipoPintura`.`idTipoPintura` AS `TipoPintura_idTipoPintura`, `TipoPintura`.`NombreTipoPintura` AS `TipoPintura_NombreTipoPintura`, `TipoPintura`.`CreatedAt` AS `TipoPintura_CreatedAt`, `TipoPintura`.`UpdatedAt` AS `TipoPintura_UpdatedAt`, `TipoPintura`.deleted AS `TipoPintura_deleted` 
+FROM `TipoPintura` 
+WHERE `TipoPintura`.`idTipoPintura` = ? 
+ LIMIT ?
+2025-05-15 16:35:20,824 - SELECT `TipoPintura`.`idTipoPintura`, `TipoPintura`.`NombreTipoPintura`, `TipoPintura`.`CreatedAt`, `TipoPintura`.`UpdatedAt`, `TipoPintura`.deleted 
+FROM `TipoPintura` 
+WHERE `TipoPintura`.`idTipoPintura` = ?
+2025-05-15 16:35:48,783 - SELECT `TipoServicio`.`idTipoServicio` AS `TipoServicio_idTipoServicio`, `TipoServicio`.`NombreTipo` AS `TipoServicio_NombreTipo`, `TipoServicio`.`idServicio` AS `TipoServicio_idServicio`, `TipoServicio`.`CreatedAt` AS `TipoServicio_CreatedAt`, `TipoServicio`.`UpdatedAt` AS `TipoServicio_UpdatedAt`, `TipoServicio`.deleted AS `TipoServicio_deleted` 
+FROM `TipoServicio`
+2025-05-15 16:36:02,120 - INSERT INTO `TipoServicio` (`NombreTipo`, `idServicio`, deleted) VALUES (?, ?, ?) RETURNING `TipoServicio`.`idTipoServicio`, `TipoServicio`.`CreatedAt`, `TipoServicio`.`UpdatedAt`
+2025-05-15 16:36:02,128 - SELECT `TipoServicio`.`idTipoServicio`, `TipoServicio`.`NombreTipo`, `TipoServicio`.`idServicio`, `TipoServicio`.`CreatedAt`, `TipoServicio`.`UpdatedAt`, `TipoServicio`.deleted 
+FROM `TipoServicio` 
+WHERE `TipoServicio`.`idTipoServicio` = ?
+2025-05-15 16:36:23,502 - SELECT `TipoServicio`.`idTipoServicio` AS `TipoServicio_idTipoServicio`, `TipoServicio`.`NombreTipo` AS `TipoServicio_NombreTipo`, `TipoServicio`.`idServicio` AS `TipoServicio_idServicio`, `TipoServicio`.`CreatedAt` AS `TipoServicio_CreatedAt`, `TipoServicio`.`UpdatedAt` AS `TipoServicio_UpdatedAt`, `TipoServicio`.deleted AS `TipoServicio_deleted` 
+FROM `TipoServicio` 
+WHERE `TipoServicio`.`idTipoServicio` = ? 
+ LIMIT ?
+2025-05-15 16:36:23,507 - SELECT `TipoServicio`.`idTipoServicio`, `TipoServicio`.`NombreTipo`, `TipoServicio`.`idServicio`, `TipoServicio`.`CreatedAt`, `TipoServicio`.`UpdatedAt`, `TipoServicio`.deleted 
+FROM `TipoServicio` 
+WHERE `TipoServicio`.`idTipoServicio` = ?
+2025-05-15 16:36:30,613 - SELECT `VehiculoInventario`.`idVehiculoInventario` AS `VehiculoInventario_idVehiculoInventario`, `VehiculoInventario`.`CantidadRequerida` AS `VehiculoInventario_CantidadRequerida`, `VehiculoInventario`.`idTipoVehiculo` AS `VehiculoInventario_idTipoVehiculo`, `VehiculoInventario`.`idInventario` AS `VehiculoInventario_idInventario`, `VehiculoInventario`.`CreatedAt` AS `VehiculoInventario_CreatedAt`, `VehiculoInventario`.`UpdatedAt` AS `VehiculoInventario_UpdatedAt`, `VehiculoInventario`.deleted AS `VehiculoInventario_deleted` 
+FROM `VehiculoInventario`
+2025-05-15 16:36:44,953 - INSERT INTO `VehiculoInventario` (`CantidadRequerida`, `idTipoVehiculo`, `idInventario`, deleted) VALUES (?, ?, ?, ?) RETURNING `VehiculoInventario`.`idVehiculoInventario`, `VehiculoInventario`.`CreatedAt`, `VehiculoInventario`.`UpdatedAt`
+2025-05-15 16:36:44,966 - SELECT `VehiculoInventario`.`idVehiculoInventario`, `VehiculoInventario`.`CantidadRequerida`, `VehiculoInventario`.`idTipoVehiculo`, `VehiculoInventario`.`idInventario`, `VehiculoInventario`.`CreatedAt`, `VehiculoInventario`.`UpdatedAt`, `VehiculoInventario`.deleted 
+FROM `VehiculoInventario` 
+WHERE `VehiculoInventario`.`idVehiculoInventario` = ?
+2025-05-15 16:37:02,836 - SELECT `VehiculoInventario`.`idVehiculoInventario` AS `VehiculoInventario_idVehiculoInventario`, `VehiculoInventario`.`CantidadRequerida` AS `VehiculoInventario_CantidadRequerida`, `VehiculoInventario`.`idTipoVehiculo` AS `VehiculoInventario_idTipoVehiculo`, `VehiculoInventario`.`idInventario` AS `VehiculoInventario_idInventario`, `VehiculoInventario`.`CreatedAt` AS `VehiculoInventario_CreatedAt`, `VehiculoInventario`.`UpdatedAt` AS `VehiculoInventario_UpdatedAt`, `VehiculoInventario`.deleted AS `VehiculoInventario_deleted` 
+FROM `VehiculoInventario` 
+WHERE `VehiculoInventario`.`idVehiculoInventario` = ? 
+ LIMIT ?
+2025-05-15 16:37:02,840 - UPDATE `VehiculoInventario` SET `CantidadRequerida`=?, `idTipoVehiculo`=?, `UpdatedAt`=now() WHERE `VehiculoInventario`.`idVehiculoInventario` = ?
+2025-05-15 16:37:24,281 - SELECT `VehiculoInventario`.`idVehiculoInventario` AS `VehiculoInventario_idVehiculoInventario`, `VehiculoInventario`.`CantidadRequerida` AS `VehiculoInventario_CantidadRequerida`, `VehiculoInventario`.`idTipoVehiculo` AS `VehiculoInventario_idTipoVehiculo`, `VehiculoInventario`.`idInventario` AS `VehiculoInventario_idInventario`, `VehiculoInventario`.`CreatedAt` AS `VehiculoInventario_CreatedAt`, `VehiculoInventario`.`UpdatedAt` AS `VehiculoInventario_UpdatedAt`, `VehiculoInventario`.deleted AS `VehiculoInventario_deleted` 
+FROM `VehiculoInventario` 
+WHERE `VehiculoInventario`.`idVehiculoInventario` = ? 
+ LIMIT ?
+2025-05-15 16:37:24,284 - UPDATE `VehiculoInventario` SET `CantidadRequerida`=?, `idTipoVehiculo`=?, `UpdatedAt`=now() WHERE `VehiculoInventario`.`idVehiculoInventario` = ?
+2025-05-15 16:37:24,291 - SELECT `VehiculoInventario`.`idVehiculoInventario`, `VehiculoInventario`.`CantidadRequerida`, `VehiculoInventario`.`idTipoVehiculo`, `VehiculoInventario`.`idInventario`, `VehiculoInventario`.`CreatedAt`, `VehiculoInventario`.`UpdatedAt`, `VehiculoInventario`.deleted 
+FROM `VehiculoInventario` 
+WHERE `VehiculoInventario`.`idVehiculoInventario` = ?
+2025-05-15 16:37:39,565 - SELECT `Devolucion`.`idDevolucion` AS `Devolucion_idDevolucion`, `Devolucion`.`FechaDevolucion` AS `Devolucion_FechaDevolucion`, `Devolucion`.`Motivo` AS `Devolucion_Motivo`, `Devolucion`.`idDetalleVenta` AS `Devolucion_idDetalleVenta`, `Devolucion`.`CreatedAt` AS `Devolucion_CreatedAt`, `Devolucion`.deleted AS `Devolucion_deleted` 
+FROM `Devolucion` 
+ LIMIT ?, ?
+2025-05-15 16:37:50,669 - SELECT `DetalleVenta`.`idDetalleVenta` AS `DetalleVenta_idDetalleVenta`, `DetalleVenta`.`idVenta` AS `DetalleVenta_idVenta`, `DetalleVenta`.`idServicio` AS `DetalleVenta_idServicio`, `DetalleVenta`.`Cantidad` AS `DetalleVenta_Cantidad`, `DetalleVenta`.`Subtotal` AS `DetalleVenta_Subtotal`, `DetalleVenta`.`Devolucion` AS `DetalleVenta_Devolucion`, `DetalleVenta`.`CreatedAt` AS `DetalleVenta_CreatedAt`, `DetalleVenta`.`UpdatedAt` AS `DetalleVenta_UpdatedAt`, `DetalleVenta`.deleted AS `DetalleVenta_deleted` 
+FROM `DetalleVenta` 
+WHERE `DetalleVenta`.`idDetalleVenta` = ? 
+ LIMIT ?
+2025-05-15 16:37:50,672 - SELECT `Servicio`.`idServicio` AS `Servicio_idServicio`, `Servicio`.`NombreServicio` AS `Servicio_NombreServicio`, `Servicio`.`DescripcionServicio` AS `Servicio_DescripcionServicio`, `Servicio`.`ValidoDev` AS `Servicio_ValidoDev`, `Servicio`.`CreatedAt` AS `Servicio_CreatedAt`, `Servicio`.`UpdatedAt` AS `Servicio_UpdatedAt`, `Servicio`.deleted AS `Servicio_deleted` 
+FROM `Servicio` 
+WHERE `Servicio`.`idServicio` = ? 
+ LIMIT ?
+2025-05-15 16:37:50,674 - SELECT `Venta`.`idVenta` AS `Venta_idVenta`, `Venta`.`idCliente` AS `Venta_idCliente`, `Venta`.`noTransaccion` AS `Venta_noTransaccion`, `Venta`.`FechaVenta` AS `Venta_FechaVenta`, `Venta`.`TotalVenta` AS `Venta_TotalVenta`, `Venta`.`CreatedAt` AS `Venta_CreatedAt`, `Venta`.`UpdatedAt` AS `Venta_UpdatedAt`, `Venta`.deleted AS `Venta_deleted` 
+FROM `Venta` 
+WHERE `Venta`.`idVenta` = ?
+2025-05-15 16:37:52,017 - HTTP Request: POST http://137.184.115.238/pagos/devoluciones/crear "HTTP/1.1 201 Created"
+2025-05-15 16:37:52,021 - INSERT INTO `Devolucion` (`FechaDevolucion`, `Motivo`, `idDetalleVenta`, deleted) VALUES (?, ?, ?, ?) RETURNING `Devolucion`.`idDevolucion`, `Devolucion`.`CreatedAt`
+2025-05-15 16:37:52,029 - SELECT `Devolucion`.`idDevolucion`, `Devolucion`.`FechaDevolucion`, `Devolucion`.`Motivo`, `Devolucion`.`idDetalleVenta`, `Devolucion`.`CreatedAt`, `Devolucion`.deleted 
+FROM `Devolucion` 
+WHERE `Devolucion`.`idDevolucion` = ?
+2025-05-15 16:39:34,026 - SELECT `Movimiento`.`idMovimiento` AS `Movimiento_idMovimiento`, `Movimiento`.`idInventario` AS `Movimiento_idInventario`, `Movimiento`.`TipoMovimiento` AS `Movimiento_TipoMovimiento`, `Movimiento`.`Cantidad` AS `Movimiento_Cantidad`, `Movimiento`.`FechaMovimiento` AS `Movimiento_FechaMovimiento`, `Movimiento`.`CreatedAt` AS `Movimiento_CreatedAt`, `Movimiento`.`UpdatedAt` AS `Movimiento_UpdatedAt`, `Movimiento`.deleted AS `Movimiento_deleted`, `Inventario_1`.`idInventario` AS `Inventario_1_idInventario`, `Inventario_1`.`TipoInventario` AS `Inventario_1_TipoInventario`, `Inventario_1`.`NombreProducto` AS `Inventario_1_NombreProducto`, `Inventario_1`.`idTipoPintura` AS `Inventario_1_idTipoPintura`, `Inventario_1`.`Lote` AS `Inventario_1_Lote`, `Inventario_1`.`CodigoColor` AS `Inventario_1_CodigoColor`, `Inventario_1`.`CantidadDisponible` AS `Inventario_1_CantidadDisponible`, `Inventario_1`.`FechaAdquisicion` AS `Inventario_1_FechaAdquisicion`, `Inventario_1`.`FechaVencimiento` AS `Inventario_1_FechaVencimiento`, `Inventario_1`.`EstadoInventario` AS `Inventario_1_EstadoInventario`, `Inventario_1`.`CreatedAt` AS `Inventario_1_CreatedAt`, `Inventario_1`.`UpdatedAt` AS `Inventario_1_UpdatedAt`, `Inventario_1`.deleted AS `Inventario_1_deleted` 
+FROM `Movimiento` LEFT OUTER JOIN `Inventario` AS `Inventario_1` ON `Inventario_1`.`idInventario` = `Movimiento`.`idInventario` 
+ LIMIT ?, ?
+2025-05-15 16:39:53,412 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-15 16:39:53,422 - SELECT `Movimiento`.`idMovimiento`, `Movimiento`.`idInventario`, `Movimiento`.`TipoMovimiento`, `Movimiento`.`Cantidad`, `Movimiento`.`FechaMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`, `Movimiento`.deleted, `Inventario_1`.`idInventario` AS `idInventario_1`, `Inventario_1`.`TipoInventario`, `Inventario_1`.`NombreProducto`, `Inventario_1`.`idTipoPintura`, `Inventario_1`.`Lote`, `Inventario_1`.`CodigoColor`, `Inventario_1`.`CantidadDisponible`, `Inventario_1`.`FechaAdquisicion`, `Inventario_1`.`FechaVencimiento`, `Inventario_1`.`EstadoInventario`, `Inventario_1`.`CreatedAt` AS `CreatedAt_1`, `Inventario_1`.`UpdatedAt` AS `UpdatedAt_1`, `Inventario_1`.deleted AS deleted_1 
+FROM `Movimiento` LEFT OUTER JOIN `Inventario` AS `Inventario_1` ON `Inventario_1`.`idInventario` = `Movimiento`.`idInventario` 
+WHERE `Movimiento`.`idMovimiento` = ?
+2025-05-15 16:42:22,850 - INSERT INTO precioserviciovehiculo (`idTipoServicio`, `idTipoVehiculo`, `Precio`, `CreatedAt`, `UpdatedAt`, deleted) VALUES (?, ?, ?, ?, ?, ?)
+2025-05-15 16:42:22,859 - SELECT precioserviciovehiculo.`idPrecioServicioVehiculo`, precioserviciovehiculo.`idTipoServicio`, precioserviciovehiculo.`idTipoVehiculo`, precioserviciovehiculo.`Precio`, precioserviciovehiculo.`CreatedAt`, precioserviciovehiculo.`UpdatedAt`, precioserviciovehiculo.deleted 
+FROM precioserviciovehiculo 
+WHERE precioserviciovehiculo.`idPrecioServicioVehiculo` = ?
+2025-05-15 16:42:28,646 - SELECT precioserviciovehiculo.`idPrecioServicioVehiculo` AS `precioserviciovehiculo_idPrecioServicioVehiculo`, precioserviciovehiculo.`idTipoServicio` AS `precioserviciovehiculo_idTipoServicio`, precioserviciovehiculo.`idTipoVehiculo` AS `precioserviciovehiculo_idTipoVehiculo`, precioserviciovehiculo.`Precio` AS `precioserviciovehiculo_Precio`, precioserviciovehiculo.`CreatedAt` AS `precioserviciovehiculo_CreatedAt`, precioserviciovehiculo.`UpdatedAt` AS `precioserviciovehiculo_UpdatedAt`, precioserviciovehiculo.deleted AS precioserviciovehiculo_deleted 
+FROM precioserviciovehiculo
+2025-05-15 17:12:40,596 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 17:12:40,601 - Added job "job_descuento_diario" to job store "default"
+2025-05-15 17:12:40,601 - Scheduler started
+2025-05-15 17:14:06,043 - INSERT INTO `Inventario` (`TipoInventario`, `NombreProducto`, `idTipoPintura`, `Lote`, `CodigoColor`, `CantidadDisponible`, `FechaAdquisicion`, `FechaVencimiento`, `EstadoInventario`, deleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING `Inventario`.`idInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`
+2025-05-15 17:14:06,089 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-15 17:14:10,772 - Scheduler has been shut down
+2025-05-15 17:14:15,220 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 17:14:15,223 - Added job "job_descuento_diario" to job store "default"
+2025-05-15 17:14:15,223 - Scheduler started
+2025-05-15 17:14:24,645 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-15 17:15:55,781 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? 
+ LIMIT ?
+2025-05-15 17:15:55,787 - UPDATE `Inventario` SET `TipoInventario`=?, `Lote`=?, `CodigoColor`=?, `CantidadDisponible`=?, `FechaAdquisicion`=?, `FechaVencimiento`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-15 17:15:55,809 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-15 17:16:01,791 - Scheduler has been shut down
+2025-05-15 17:16:06,038 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 17:16:06,040 - Added job "job_descuento_diario" to job store "default"
+2025-05-15 17:16:06,040 - Scheduler started
+2025-05-15 17:16:28,832 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-15 17:16:45,082 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? 
+ LIMIT ?
+2025-05-15 17:16:45,090 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-15 17:16:45,105 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-15 17:16:49,525 - Scheduler has been shut down
+2025-05-15 17:16:55,329 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 17:16:55,330 - Added job "job_descuento_diario" to job store "default"
+2025-05-15 17:16:55,330 - Scheduler started
+2025-05-15 17:17:22,236 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-15 17:23:12,700 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? 
+ LIMIT ?
+2025-05-15 17:23:12,706 - UPDATE `Inventario` SET `TipoInventario`=?, `CantidadDisponible`=?, `FechaAdquisicion`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-15 17:23:12,713 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-15 17:27:38,712 - Scheduler has been shut down
+2025-05-15 17:27:42,160 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 17:27:42,161 - Added job "job_descuento_diario" to job store "default"
+2025-05-15 17:27:42,161 - Scheduler started
+2025-05-15 17:27:49,663 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-15 17:28:37,716 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? 
+ LIMIT ?
+2025-05-15 17:28:37,724 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-15 17:28:37,736 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-15 17:28:40,954 - Scheduler has been shut down
+2025-05-15 17:29:22,780 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 17:29:22,781 - Added job "job_descuento_diario" to job store "default"
+2025-05-15 17:29:22,782 - Scheduler started
+2025-05-15 17:29:29,727 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-15 17:29:52,398 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-15 17:35:11,941 - Scheduler has been shut down
+2025-05-15 17:35:13,599 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 17:35:13,600 - Added job "job_descuento_diario" to job store "default"
+2025-05-15 17:35:13,600 - Scheduler started
+2025-05-15 17:35:13,626 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-15 17:35:13,634 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-15 17:35:13,703 - Scheduler has been shut down
+2025-05-15 17:35:19,494 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 17:35:19,495 - Added job "job_descuento_diario" to job store "default"
+2025-05-15 17:35:19,495 - Scheduler started
+2025-05-15 17:35:19,529 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-15 17:35:19,532 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-15 17:35:27,809 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-15 17:57:35,591 - Scheduler has been shut down
+2025-05-15 18:00:35,863 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 18:00:35,867 - Added job "job_descuento_diario" to job store "default"
+2025-05-15 18:00:35,868 - Scheduler started
+2025-05-15 18:00:35,965 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-15 18:00:35,978 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-15 18:00:48,454 - HTTP Request: POST http://137.184.115.238/pagos/transacciones/crear "HTTP/1.1 201 Created"
+2025-05-15 18:00:48,462 - INSERT INTO `Venta` (`idCliente`, `noTransaccion`, `TotalVenta`, deleted) VALUES (?, ?, ?, ?) RETURNING `Venta`.`idVenta`, `Venta`.`FechaVenta`, `Venta`.`CreatedAt`, `Venta`.`UpdatedAt`
+2025-05-15 18:00:48,486 - SELECT `Venta`.`idVenta`, `Venta`.`idCliente`, `Venta`.`noTransaccion`, `Venta`.`FechaVenta`, `Venta`.`TotalVenta`, `Venta`.`CreatedAt`, `Venta`.`UpdatedAt`, `Venta`.deleted 
+FROM `Venta` 
+WHERE `Venta`.`idVenta` = ?
+2025-05-15 18:00:48,497 - SELECT `Servicio`.`idServicio` AS `Servicio_idServicio`, `Servicio`.`NombreServicio` AS `Servicio_NombreServicio`, `Servicio`.`DescripcionServicio` AS `Servicio_DescripcionServicio`, `Servicio`.`ValidoDev` AS `Servicio_ValidoDev`, `Servicio`.`CreatedAt` AS `Servicio_CreatedAt`, `Servicio`.`UpdatedAt` AS `Servicio_UpdatedAt`, `Servicio`.deleted AS `Servicio_deleted` 
+FROM `Servicio` 
+WHERE `Servicio`.`NombreServicio` = ? 
+ LIMIT ?
+2025-05-15 18:00:48,519 - INSERT INTO `DetalleVenta` (`idVenta`, `idServicio`, `Cantidad`, `Subtotal`, `Devolucion`, deleted) VALUES (?, ?, ?, ?, ?, ?) RETURNING `DetalleVenta`.`idDetalleVenta`, `DetalleVenta`.`CreatedAt`, `DetalleVenta`.`UpdatedAt`
+2025-05-15 18:00:48,536 - SELECT `DetalleVenta`.`idDetalleVenta`, `DetalleVenta`.`idVenta`, `DetalleVenta`.`idServicio`, `DetalleVenta`.`Cantidad`, `DetalleVenta`.`Subtotal`, `DetalleVenta`.`Devolucion`, `DetalleVenta`.`CreatedAt`, `DetalleVenta`.`UpdatedAt`, `DetalleVenta`.deleted 
+FROM `DetalleVenta` 
+WHERE `DetalleVenta`.`idDetalleVenta` = ?
+2025-05-15 18:00:48,542 - SELECT `TipoVehiculo`.`idTipoVehiculo` AS `TipoVehiculo_idTipoVehiculo`, `TipoVehiculo`.`NombreTipoVehiculo` AS `TipoVehiculo_NombreTipoVehiculo`, `TipoVehiculo`.`CreatedAt` AS `TipoVehiculo_CreatedAt`, `TipoVehiculo`.`UpdatedAt` AS `TipoVehiculo_UpdatedAt`, `TipoVehiculo`.deleted AS `TipoVehiculo_deleted` 
+FROM `TipoVehiculo` 
+WHERE `TipoVehiculo`.`NombreTipoVehiculo` = ? 
+ LIMIT ?
+2025-05-15 18:00:48,548 - SELECT `VehiculoInventario`.`idVehiculoInventario` AS `VehiculoInventario_idVehiculoInventario`, `VehiculoInventario`.`CantidadRequerida` AS `VehiculoInventario_CantidadRequerida`, `VehiculoInventario`.`idTipoVehiculo` AS `VehiculoInventario_idTipoVehiculo`, `VehiculoInventario`.`idInventario` AS `VehiculoInventario_idInventario`, `VehiculoInventario`.`CreatedAt` AS `VehiculoInventario_CreatedAt`, `VehiculoInventario`.`UpdatedAt` AS `VehiculoInventario_UpdatedAt`, `VehiculoInventario`.deleted AS `VehiculoInventario_deleted` 
+FROM `VehiculoInventario` 
+WHERE `VehiculoInventario`.`idTipoVehiculo` = ?
+2025-05-15 18:00:48,556 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? AND `Inventario`.`CantidadDisponible` > ? AND `Inventario`.deleted = false AND `Inventario`.`EstadoInventario` = true ORDER BY `Inventario`.`FechaAdquisicion` ASC
+2025-05-15 18:00:48,563 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? AND `Inventario`.`CantidadDisponible` > ? AND `Inventario`.deleted = false AND `Inventario`.`EstadoInventario` = true ORDER BY `Inventario`.`FechaAdquisicion` ASC
+2025-05-15 18:00:48,567 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-15 18:00:48,576 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?), (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`, `Movimiento`.`idMovimiento` AS `idMovimiento__1`
+2025-05-15 18:00:48,588 - SELECT `Venta`.`idVenta` AS `Venta_idVenta`, `Venta`.`idCliente` AS `Venta_idCliente`, `Venta`.`noTransaccion` AS `Venta_noTransaccion`, `Venta`.`FechaVenta` AS `Venta_FechaVenta`, `Venta`.`TotalVenta` AS `Venta_TotalVenta`, `Venta`.`CreatedAt` AS `Venta_CreatedAt`, `Venta`.`UpdatedAt` AS `Venta_UpdatedAt`, `Venta`.deleted AS `Venta_deleted` 
+FROM `Venta` 
+WHERE `Venta`.`idVenta` = ?
+2025-05-15 18:01:02,519 - SELECT `Movimiento`.`idMovimiento` AS `Movimiento_idMovimiento`, `Movimiento`.`idInventario` AS `Movimiento_idInventario`, `Movimiento`.`TipoMovimiento` AS `Movimiento_TipoMovimiento`, `Movimiento`.`Cantidad` AS `Movimiento_Cantidad`, `Movimiento`.`FechaMovimiento` AS `Movimiento_FechaMovimiento`, `Movimiento`.`CreatedAt` AS `Movimiento_CreatedAt`, `Movimiento`.`UpdatedAt` AS `Movimiento_UpdatedAt`, `Movimiento`.deleted AS `Movimiento_deleted`, `Inventario_1`.`idInventario` AS `Inventario_1_idInventario`, `Inventario_1`.`TipoInventario` AS `Inventario_1_TipoInventario`, `Inventario_1`.`NombreProducto` AS `Inventario_1_NombreProducto`, `Inventario_1`.`idTipoPintura` AS `Inventario_1_idTipoPintura`, `Inventario_1`.`Lote` AS `Inventario_1_Lote`, `Inventario_1`.`CodigoColor` AS `Inventario_1_CodigoColor`, `Inventario_1`.`CantidadDisponible` AS `Inventario_1_CantidadDisponible`, `Inventario_1`.`FechaAdquisicion` AS `Inventario_1_FechaAdquisicion`, `Inventario_1`.`FechaVencimiento` AS `Inventario_1_FechaVencimiento`, `Inventario_1`.`EstadoInventario` AS `Inventario_1_EstadoInventario`, `Inventario_1`.`CreatedAt` AS `Inventario_1_CreatedAt`, `Inventario_1`.`UpdatedAt` AS `Inventario_1_UpdatedAt`, `Inventario_1`.deleted AS `Inventario_1_deleted` 
+FROM `Movimiento` LEFT OUTER JOIN `Inventario` AS `Inventario_1` ON `Inventario_1`.`idInventario` = `Movimiento`.`idInventario` 
+ LIMIT ?, ?
+2025-05-15 18:04:47,057 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-15 18:11:18,869 - SELECT `VehiculoInventario`.`idVehiculoInventario` AS `VehiculoInventario_idVehiculoInventario`, `VehiculoInventario`.`CantidadRequerida` AS `VehiculoInventario_CantidadRequerida`, `VehiculoInventario`.`idTipoVehiculo` AS `VehiculoInventario_idTipoVehiculo`, `VehiculoInventario`.`idInventario` AS `VehiculoInventario_idInventario`, `VehiculoInventario`.`CreatedAt` AS `VehiculoInventario_CreatedAt`, `VehiculoInventario`.`UpdatedAt` AS `VehiculoInventario_UpdatedAt`, `VehiculoInventario`.deleted AS `VehiculoInventario_deleted` 
+FROM `VehiculoInventario`
+2025-05-15 18:15:27,118 - Scheduler has been shut down
+2025-05-15 18:36:50,111 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 18:36:50,113 - Added job "job_descuento_diario" to job store "default"
+2025-05-15 18:36:50,113 - Scheduler started
+2025-05-15 18:36:50,236 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-15 18:36:50,279 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-15 18:38:49,856 - INSERT INTO `Inventario` (`TipoInventario`, `NombreProducto`, `idTipoPintura`, `Lote`, `CodigoColor`, `CantidadDisponible`, `FechaAdquisicion`, `FechaVencimiento`, `EstadoInventario`, deleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING `Inventario`.`idInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`
+2025-05-15 18:38:49,870 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-15 18:38:49,875 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-15 18:38:59,063 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-15 18:39:11,369 - SELECT `Movimiento`.`idMovimiento` AS `Movimiento_idMovimiento`, `Movimiento`.`idInventario` AS `Movimiento_idInventario`, `Movimiento`.`TipoMovimiento` AS `Movimiento_TipoMovimiento`, `Movimiento`.`Cantidad` AS `Movimiento_Cantidad`, `Movimiento`.`FechaMovimiento` AS `Movimiento_FechaMovimiento`, `Movimiento`.`CreatedAt` AS `Movimiento_CreatedAt`, `Movimiento`.`UpdatedAt` AS `Movimiento_UpdatedAt`, `Movimiento`.deleted AS `Movimiento_deleted`, `Inventario_1`.`idInventario` AS `Inventario_1_idInventario`, `Inventario_1`.`TipoInventario` AS `Inventario_1_TipoInventario`, `Inventario_1`.`NombreProducto` AS `Inventario_1_NombreProducto`, `Inventario_1`.`idTipoPintura` AS `Inventario_1_idTipoPintura`, `Inventario_1`.`Lote` AS `Inventario_1_Lote`, `Inventario_1`.`CodigoColor` AS `Inventario_1_CodigoColor`, `Inventario_1`.`CantidadDisponible` AS `Inventario_1_CantidadDisponible`, `Inventario_1`.`FechaAdquisicion` AS `Inventario_1_FechaAdquisicion`, `Inventario_1`.`FechaVencimiento` AS `Inventario_1_FechaVencimiento`, `Inventario_1`.`EstadoInventario` AS `Inventario_1_EstadoInventario`, `Inventario_1`.`CreatedAt` AS `Inventario_1_CreatedAt`, `Inventario_1`.`UpdatedAt` AS `Inventario_1_UpdatedAt`, `Inventario_1`.deleted AS `Inventario_1_deleted` 
+FROM `Movimiento` LEFT OUTER JOIN `Inventario` AS `Inventario_1` ON `Inventario_1`.`idInventario` = `Movimiento`.`idInventario` 
+ LIMIT ?, ?
+2025-05-15 18:41:19,626 - Scheduler has been shut down
+2025-05-15 18:41:21,691 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-15 18:41:21,692 - Added job "job_descuento_diario" to job store "default"
+2025-05-15 18:41:21,692 - Scheduler started
+2025-05-15 18:41:21,726 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-15 18:41:21,730 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-15 18:41:21,774 - INSERT INTO `Inventario` (`TipoInventario`, `NombreProducto`, `idTipoPintura`, `Lote`, `CodigoColor`, `CantidadDisponible`, `FechaAdquisicion`, `FechaVencimiento`, `EstadoInventario`, deleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING `Inventario`.`idInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`
+2025-05-15 18:41:21,780 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-15 18:41:21,782 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-15 18:41:21,794 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-15 19:12:50,565 - Scheduler has been shut down

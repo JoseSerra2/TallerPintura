@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+from apscheduler.schedulers.background import BackgroundScheduler
+from app.database import SessionLocal
+from app.service.inventario_service import aplicar_descuento_desgaste
 from app.controller.Venta_controller import router as Venta_router
 from app.controller.servicio_controller import router as servicio_router 
 from app.controller.tipovehiculo_controller import router as tipovehiculo_router 
@@ -18,6 +21,24 @@ app = FastAPI(
     description="Microservicio para gestionar taller de pintura",
     version="1.0"
 )
+
+def job_descuento_diario():
+    db = SessionLocal()
+    try:
+        aplicar_descuento_desgaste(db)
+        print("Descuento de desgaste aplicado correctamente.")
+    except Exception as e:
+        print(f"Error al aplicar descuento de desgaste: {e}")
+    finally:
+        db.close()
+        
+scheduler = BackgroundScheduler()
+scheduler.add_job(job_descuento_diario, 'interval', days=1)
+scheduler.start()
+job_descuento_diario()
+
+import atexit
+atexit.register(lambda: scheduler.shutdown())
 
 app.include_router(servicio_router, tags=["Servicios"])  
 app.include_router(Venta_router, tags=["Venta"])  

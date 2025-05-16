@@ -130,7 +130,7 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
             )
             crear_detalle(db, detalle_create)
 
-        # 🔁 DESCUENTO DE INVENTARIO Y REGISTRO DE MOVIMIENTO
+        # 🔁 DESCUENTO DE INVENTARIO Y REGISTRO DE MOVIMIENTO (FIFO)
         tipo_vehiculo = db.query(TipoVehiculo).filter(TipoVehiculo.NombreTipoVehiculo == venta.TipoVehiculo).first()
         if not tipo_vehiculo:
             raise HTTPException(status_code=404, detail=f"Tipo de vehículo '{venta.TipoVehiculo}' no encontrado")
@@ -140,23 +140,47 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
             raise HTTPException(status_code=404, detail=f"No se encontraron insumos asociados al tipo de vehículo '{venta.TipoVehiculo}'")
 
         for relacion in relaciones:
-            inventario = db.query(Inventario).filter(Inventario.idInventario == relacion.idInventario).first()
-            if not inventario:
-                continue
+            cantidad_requerida = relacion.CantidadRequerida
+            # Consultar lotes con stock > 0, activos y ordenados por FechaAdquisicion ascendente
+            inventarios = db.query(Inventario).filter(
+                Inventario.idInventario == relacion.idInventario,
+                Inventario.CantidadDisponible > 0,
+                Inventario.deleted == False,
+                Inventario.EstadoInventario == True
+            ).order_by(Inventario.FechaAdquisicion.asc()).all()
 
-            if inventario.CantidadDisponible < relacion.CantidadRequerida:
+            for inventario in inventarios:
+                if cantidad_requerida <= 0:
+                    break
+
+                disponible = inventario.CantidadDisponible
+
+                if disponible >= cantidad_requerida:
+                    inventario.CantidadDisponible -= cantidad_requerida
+
+                    movimiento = Movimiento(
+                        idInventario=inventario.idInventario,
+                        TipoMovimiento="Salida",
+                        Cantidad=cantidad_requerida,
+                        FechaMovimiento=datetime.now(),
+                        deleted=False
+                    )
+                    db.add(movimiento)
+                    cantidad_requerida = 0
+                else:
+                    inventario.CantidadDisponible = 0
+                    movimiento = Movimiento(
+                        idInventario=inventario.idInventario,
+                        TipoMovimiento="Salida",
+                        Cantidad=disponible,
+                        FechaMovimiento=datetime.now(),
+                        deleted=False
+                    )
+                    db.add(movimiento)
+                    cantidad_requerida -= disponible
+
+            if cantidad_requerida > 0:
                 raise HTTPException(status_code=400, detail=f"Inventario insuficiente para '{inventario.NombreProducto}'")
-
-            inventario.CantidadDisponible -= relacion.CantidadRequerida
-
-            movimiento = Movimiento(
-                idInventario=inventario.idInventario,
-                TipoMovimiento="Salida",
-                Cantidad=relacion.CantidadRequerida,
-                FechaMovimiento=datetime.now(),
-                deleted=False
-            )
-            db.add(movimiento)
 
         db.commit()
 

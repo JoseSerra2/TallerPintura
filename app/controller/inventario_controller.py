@@ -62,7 +62,8 @@ async def manejar_inventario(request: Request, db: Session = Depends(get_db)):
     if data.accion == "crear":
         return create_inventario(db, data)
     elif data.accion == "aumentar":
-        return procesar_solicitud_inventario(db, data.idInventario, data.cantidad, data.origen)
+        resultado = procesar_solicitud_inventario(db, data.idInventario, data.cantidad, data.origen)
+        return resultado["inventario"]
 
     raise HTTPException(status_code=400, detail="Acción no reconocida")
 

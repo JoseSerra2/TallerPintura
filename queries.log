@@ -329,3 +329,327 @@ WHERE `Inventario`.`idInventario` = ?
 FROM `Inventario` 
 WHERE `Inventario`.`idInventario` = ?
 2025-05-15 19:12:50,565 - Scheduler has been shut down
+2025-05-16 18:13:15,444 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 18:13:15,451 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 18:13:15,451 - Scheduler started
+2025-05-16 18:13:15,568 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 18:13:15,609 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:15:32,709 - Scheduler has been shut down
+2025-05-16 18:15:45,530 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 18:15:45,532 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 18:15:45,532 - Scheduler started
+2025-05-16 18:15:45,583 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 18:15:45,589 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:16:40,549 - INSERT INTO `Inventario` (`TipoInventario`, `NombreProducto`, `idTipoPintura`, `Lote`, `CodigoColor`, `CantidadDisponible`, `FechaAdquisicion`, `FechaVencimiento`, `EstadoInventario`, deleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING `Inventario`.`idInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`
+2025-05-16 18:16:40,591 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:16:40,605 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-16 18:16:40,642 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:17:18,722 - INSERT INTO `Inventario` (`TipoInventario`, `NombreProducto`, `idTipoPintura`, `Lote`, `CodigoColor`, `CantidadDisponible`, `FechaAdquisicion`, `FechaVencimiento`, `EstadoInventario`, deleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING `Inventario`.`idInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`
+2025-05-16 18:17:18,732 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:17:18,734 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-16 18:17:18,740 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:17:29,169 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 18:17:30,162 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/gasolinera "HTTP/1.1 500 Internal Server Error"
+2025-05-16 18:17:30,580 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/gasolinera "HTTP/1.1 500 Internal Server Error"
+2025-05-16 18:26:47,773 - INSERT INTO `Inventario` (`TipoInventario`, `NombreProducto`, `idTipoPintura`, `Lote`, `CodigoColor`, `CantidadDisponible`, `FechaAdquisicion`, `FechaVencimiento`, `EstadoInventario`, deleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING `Inventario`.`idInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`
+2025-05-16 18:26:47,919 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:26:47,943 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-16 18:26:47,957 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:31:07,622 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 18:31:08,329 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/gasolinera "HTTP/1.1 404 Not Found"
+2025-05-16 18:31:08,693 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/gasolinera "HTTP/1.1 404 Not Found"
+2025-05-16 18:31:09,014 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/gasolinera "HTTP/1.1 404 Not Found"
+2025-05-16 18:33:02,549 - Scheduler has been shut down
+2025-05-16 18:33:08,222 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 18:33:08,224 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 18:33:08,224 - Scheduler started
+2025-05-16 18:33:08,309 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 18:33:08,321 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:38:34,535 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 18:38:34,538 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 18:38:34,538 - Scheduler started
+2025-05-16 18:38:34,591 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 18:38:34,595 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:43:24,672 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 18:43:25,275 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/gasolinera "HTTP/1.1 404 Not Found"
+2025-05-16 18:43:25,795 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/gasolinera "HTTP/1.1 404 Not Found"
+2025-05-16 18:43:26,268 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/gasolinera "HTTP/1.1 404 Not Found"
+2025-05-16 18:44:25,145 - Scheduler has been shut down
+2025-05-16 18:44:28,704 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 18:44:28,705 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 18:44:28,705 - Scheduler started
+2025-05-16 18:44:28,795 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 18:44:28,812 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:45:43,312 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 18:45:44,028 - HTTP Request: POST http://localhost:3000/POST/alertas/pintura "HTTP/1.1 404 Not Found"
+2025-05-16 18:45:44,540 - HTTP Request: POST http://localhost:3000/POST/alertas/pintura "HTTP/1.1 404 Not Found"
+2025-05-16 18:45:45,038 - HTTP Request: POST http://localhost:3000/POST/alertas/pintura "HTTP/1.1 404 Not Found"
+2025-05-16 18:48:01,411 - Scheduler has been shut down
+2025-05-16 18:48:06,141 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 18:48:06,143 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 18:48:06,143 - Scheduler started
+2025-05-16 18:48:06,205 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 18:48:06,213 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:48:12,473 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 18:48:13,359 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/pintura "HTTP/1.1 404 Not Found"
+2025-05-16 18:48:14,108 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/pintura "HTTP/1.1 404 Not Found"
+2025-05-16 18:48:14,805 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/pintura "HTTP/1.1 404 Not Found"
+2025-05-16 18:49:19,753 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 18:49:20,309 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/pintura "HTTP/1.1 404 Not Found"
+2025-05-16 18:49:20,721 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/pintura "HTTP/1.1 404 Not Found"
+2025-05-16 18:49:21,211 - HTTP Request: POST http://localhost:3000/administracion/POST/alertas/pintura "HTTP/1.1 404 Not Found"
+2025-05-16 18:50:41,516 - Scheduler has been shut down
+2025-05-16 18:50:45,481 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 18:50:45,483 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 18:50:45,483 - Scheduler started
+2025-05-16 18:50:45,563 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 18:50:45,580 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:50:45,669 - Scheduler has been shut down
+2025-05-16 18:50:50,584 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 18:50:50,587 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 18:50:50,587 - Scheduler started
+2025-05-16 18:50:50,644 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 18:50:50,649 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:50:55,704 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 18:50:56,812 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 18:50:57,585 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 18:50:58,625 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 18:52:23,557 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 18:52:24,565 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 18:52:25,609 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 18:52:26,409 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 18:52:26,554 - Scheduler has been shut down
+2025-05-16 18:52:29,551 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 18:52:29,553 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 18:52:29,553 - Scheduler started
+2025-05-16 18:52:29,633 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 18:52:29,644 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:52:37,557 - Scheduler has been shut down
+2025-05-16 18:52:44,732 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 18:52:44,735 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 18:52:44,735 - Scheduler started
+2025-05-16 18:52:44,815 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 18:52:44,820 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:52:45,979 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 18:52:46,524 - HTTP Request: POST http://localhost:3000/api/administracion/alertas/gasolinera "HTTP/1.1 404 Not Found"
+2025-05-16 18:52:47,092 - HTTP Request: POST http://localhost:3000/api/administracion/alertas/gasolinera "HTTP/1.1 404 Not Found"
+2025-05-16 18:52:47,674 - HTTP Request: POST http://localhost:3000/api/administracion/alertas/gasolinera "HTTP/1.1 404 Not Found"
+2025-05-16 18:55:39,139 - Scheduler has been shut down
+2025-05-16 18:55:48,445 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 18:55:48,446 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 18:55:48,446 - Scheduler started
+2025-05-16 18:55:48,528 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 18:55:48,549 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 18:56:05,693 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 18:56:06,468 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 18:56:06,993 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 18:56:07,553 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 19:04:25,182 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 19:04:26,076 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 19:04:26,528 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 19:04:27,072 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 19:07:14,990 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 19:07:16,121 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:07:17,529 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:07:18,060 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:07:37,395 - Scheduler has been shut down
+2025-05-16 19:07:45,870 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 19:07:45,872 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 19:07:45,872 - Scheduler started
+2025-05-16 19:07:45,975 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 19:07:45,993 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:07:52,286 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 19:07:53,480 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:07:54,327 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:07:55,451 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:11:01,244 - Scheduler has been shut down
+2025-05-16 19:11:10,072 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 19:11:10,076 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 19:11:10,076 - Scheduler started
+2025-05-16 19:11:10,138 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 19:11:10,143 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:11:16,623 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 19:11:17,786 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:11:19,253 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:11:20,413 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:11:20,419 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaVencimiento` IS NOT NULL AND `Inventario`.`FechaVencimiento` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 19:11:21,576 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:13:13,505 - Scheduler has been shut down
+2025-05-16 19:13:23,401 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 19:13:23,404 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 19:13:23,404 - Scheduler started
+2025-05-16 19:13:23,466 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 19:13:23,470 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:13:25,927 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario`
+2025-05-16 19:13:26,659 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:13:27,110 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:13:28,000 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:13:29,076 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:13:30,179 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:16:03,771 - Scheduler has been shut down
+2025-05-16 19:16:06,556 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 19:16:06,557 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 19:16:06,557 - Scheduler started
+2025-05-16 19:16:06,619 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 19:16:06,627 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:16:22,951 - INSERT INTO `Inventario` (`TipoInventario`, `NombreProducto`, `idTipoPintura`, `Lote`, `CodigoColor`, `CantidadDisponible`, `FechaAdquisicion`, `FechaVencimiento`, `EstadoInventario`, deleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING `Inventario`.`idInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`
+2025-05-16 19:16:22,969 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:16:22,977 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-16 19:16:22,990 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:20:40,289 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? 
+ LIMIT ?
+2025-05-16 19:20:40,320 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:20:40,337 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:20:40,340 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-16 19:20:40,349 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:23:11,927 - Scheduler has been shut down
+2025-05-16 19:23:14,124 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 19:23:14,128 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 19:23:14,128 - Scheduler started
+2025-05-16 19:23:14,180 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 19:23:14,187 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:23:16,062 - Scheduler has been shut down
+2025-05-16 19:23:19,257 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 19:23:19,258 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 19:23:19,258 - Scheduler started
+2025-05-16 19:23:19,286 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 19:23:19,288 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:23:21,357 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? 
+ LIMIT ?
+2025-05-16 19:23:21,359 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:23:21,364 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:23:21,366 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-16 19:23:21,372 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:23:21,871 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 19:23:28,468 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? 
+ LIMIT ?
+2025-05-16 19:23:28,472 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:23:28,473 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-16 19:23:28,478 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:23:28,859 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 19:25:14,984 - Scheduler has been shut down
+2025-05-16 19:25:16,689 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 19:25:16,691 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 19:25:16,691 - Scheduler started
+2025-05-16 19:25:16,722 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 19:25:16,724 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:25:18,772 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? 
+ LIMIT ?
+2025-05-16 19:25:18,775 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:25:18,778 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-16 19:25:18,784 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:25:19,102 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 400 Bad Request"
+2025-05-16 19:25:42,850 - Scheduler has been shut down
+2025-05-16 19:25:44,150 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-16 19:25:44,151 - Added job "job_descuento_diario" to job store "default"
+2025-05-16 19:25:44,151 - Scheduler started
+2025-05-16 19:25:44,177 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-16 19:25:44,179 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:25:49,260 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ? 
+ LIMIT ?
+2025-05-16 19:25:49,264 - SELECT `Inventario`.`idInventario`, `Inventario`.`TipoInventario`, `Inventario`.`NombreProducto`, `Inventario`.`idTipoPintura`, `Inventario`.`Lote`, `Inventario`.`CodigoColor`, `Inventario`.`CantidadDisponible`, `Inventario`.`FechaAdquisicion`, `Inventario`.`FechaVencimiento`, `Inventario`.`EstadoInventario`, `Inventario`.`CreatedAt`, `Inventario`.`UpdatedAt`, `Inventario`.deleted 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:25:49,269 - INSERT INTO `Movimiento` (`idInventario`, `TipoMovimiento`, `Cantidad`, `FechaMovimiento`, deleted) VALUES (?, ?, ?, ?, ?) RETURNING `Movimiento`.`idMovimiento`, `Movimiento`.`CreatedAt`, `Movimiento`.`UpdatedAt`
+2025-05-16 19:25:49,276 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`idInventario` = ?
+2025-05-16 19:25:49,993 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
+2025-05-16 19:26:40,989 - Scheduler has been shut down

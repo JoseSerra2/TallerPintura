@@ -653,3 +653,19 @@ FROM `Inventario`
 WHERE `Inventario`.`idInventario` = ?
 2025-05-16 19:25:49,993 - HTTP Request: POST http://localhost:3000/api/administracion/POST/alertas/pintura "HTTP/1.1 201 Created"
 2025-05-16 19:26:40,989 - Scheduler has been shut down
+2025-05-22 11:57:28,117 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-22 11:57:28,126 - Added job "job_descuento_diario" to job store "default"
+2025-05-22 11:57:28,126 - Scheduler started
+2025-05-22 11:57:28,329 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-22 11:57:28,397 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-22 11:57:41,442 - Scheduler has been shut down
+2025-05-22 11:57:45,989 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-22 11:57:45,990 - Added job "job_descuento_diario" to job store "default"
+2025-05-22 11:57:45,990 - Scheduler started
+2025-05-22 11:57:46,019 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-22 11:57:46,021 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-22 11:58:23,481 - Scheduler has been shut down

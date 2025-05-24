@@ -72,7 +72,7 @@ def crear_venta_reenviada(venta: VentaSimpleRequest, db: Session = Depends(get_d
 
         # Llamada al servicio de pagos
         try:
-            response = httpx.post("http://137.184.115.238/pagos/transacciones/crear", json=data_para_pago)
+            response = httpx.post("http://localhost:3001/pagos/transacciones/crear", json=data_para_pago)
             response.raise_for_status()
         except httpx.HTTPStatusError as e:
             print(f"❌ Error HTTP al contactar servicio de pagos: {e.response.status_code}")

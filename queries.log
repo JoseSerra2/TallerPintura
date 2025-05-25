@@ -669,3 +669,11 @@ FROM `Inventario`
 WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
 2025-05-22 11:57:46,021 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
 2025-05-22 11:58:23,481 - Scheduler has been shut down
+2025-05-24 16:17:06,887 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-05-24 16:17:06,893 - Added job "job_descuento_diario" to job store "default"
+2025-05-24 16:17:06,893 - Scheduler started
+2025-05-24 16:17:07,059 - SELECT `Inventario`.`idInventario` AS `Inventario_idInventario`, `Inventario`.`TipoInventario` AS `Inventario_TipoInventario`, `Inventario`.`NombreProducto` AS `Inventario_NombreProducto`, `Inventario`.`idTipoPintura` AS `Inventario_idTipoPintura`, `Inventario`.`Lote` AS `Inventario_Lote`, `Inventario`.`CodigoColor` AS `Inventario_CodigoColor`, `Inventario`.`CantidadDisponible` AS `Inventario_CantidadDisponible`, `Inventario`.`FechaAdquisicion` AS `Inventario_FechaAdquisicion`, `Inventario`.`FechaVencimiento` AS `Inventario_FechaVencimiento`, `Inventario`.`EstadoInventario` AS `Inventario_EstadoInventario`, `Inventario`.`CreatedAt` AS `Inventario_CreatedAt`, `Inventario`.`UpdatedAt` AS `Inventario_UpdatedAt`, `Inventario`.deleted AS `Inventario_deleted` 
+FROM `Inventario` 
+WHERE `Inventario`.`FechaAdquisicion` <= ? AND `Inventario`.`CantidadDisponible` > ?
+2025-05-24 16:17:07,148 - UPDATE `Inventario` SET `CantidadDisponible`=?, `UpdatedAt`=now() WHERE `Inventario`.`idInventario` = ?
+2025-05-24 16:18:20,785 - Scheduler has been shut down

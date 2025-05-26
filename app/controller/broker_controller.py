@@ -40,7 +40,7 @@ async def broker_handler(request: Request):
                 }
             )
 
-        url = f"http://localhost:8000/pintura/{method}/{endpoint}"
+        url = f"http://64.23.169.22:8000/pintura/{method}/{endpoint}"
         print(f"➡️ Reenviando a {url} con método {method} y payload: {payload}")
 
         async with httpx.AsyncClient() as client:

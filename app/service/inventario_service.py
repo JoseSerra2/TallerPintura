@@ -8,7 +8,7 @@ import httpx
 
 def enviar_alerta_administracion(nombre_producto: str):
     try:
-        url = "http://localhost:3000/api/administracion/POST/alertas/pintura"
+        url = "http://64.23.169.22:3000/api/administracion/POST/alertas/pintura"
         payload = {"nombre_producto": nombre_producto}
         response = httpx.post(url, json=payload, timeout=5)
         response.raise_for_status()

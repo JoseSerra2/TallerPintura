@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: tallerpintura-api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mariadb
+    env_file:
+      - queries.env
+    restart: always
+
+  mariadb:
+    image: mariadb:11.7.2
+    container_name: taller_pintura_db
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: taller_pintura
+      MARIADB_USER: userapp
+      MARIADB_PASSWORD: 1234
+    ports:
+      - "3306:3306"
+    volumes: 
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql

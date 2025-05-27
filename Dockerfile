@@ -1,10 +1,6 @@
-FROM python:3.10-slim
+FROM python:3.10
 
 WORKDIR /app
-
-RUN apt-get update && \
-    apt-get install -y gcc libmariadb-dev tk-dev python3-tk portaudio19-dev && \
-    rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt

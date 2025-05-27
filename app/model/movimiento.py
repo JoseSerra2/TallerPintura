@@ -4,10 +4,10 @@ from app.database import Base
 from sqlalchemy.orm import relationship
 
 class Movimiento(Base):
-    __tablename__ = "Movimiento"
+    __tablename__ = "movimiento"
 
     idMovimiento = Column(Integer, primary_key=True, autoincrement=True)
-    idInventario = Column(Integer, ForeignKey("Inventario.idInventario", ondelete="SET NULL"), nullable=True)
+    idInventario = Column(Integer, ForeignKey("inventario.idInventario", ondelete="SET NULL"), nullable=True)
     TipoMovimiento = Column(String(100), nullable=False)
     Cantidad = Column(Integer, nullable=False)
     FechaMovimiento = Column(DateTime, nullable=False)

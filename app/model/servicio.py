@@ -1,10 +1,10 @@
-from sqlalchemy import Column, Integer, String, Boolean ,DateTime
+from sqlalchemy import Column, Integer, String, Boolean, DateTime
 from app.database import Base
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 
 class Servicio(Base):
-    __tablename__ = "Servicio"
+    __tablename__ = "servicio"
 
     idServicio = Column(Integer, primary_key=True, autoincrement=True)
     NombreServicio = Column(String(100), nullable=False)

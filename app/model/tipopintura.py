@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 from app.database import Base
 
 class TipoPintura(Base):
-    __tablename__ = "TipoPintura"
+    __tablename__ = "tipopintura"
 
     idTipoPintura = Column(Integer, primary_key=True, autoincrement=True)
     NombreTipoPintura = Column(String(100), nullable=False)

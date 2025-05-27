@@ -7,8 +7,8 @@ class PrecioServicioVehiculo(Base):
     __tablename__ = "precioserviciovehiculo"
 
     idPrecioServicioVehiculo = Column(Integer, primary_key=True, index=True)
-    idTipoServicio = Column(Integer, ForeignKey("TipoServicio.idTipoServicio"), nullable=False)
-    idTipoVehiculo = Column(Integer, ForeignKey("TipoVehiculo.idTipoVehiculo"), nullable=False)
+    idTipoServicio = Column(Integer, ForeignKey("tiposervicio.idTipoServicio"), nullable=False)
+    idTipoVehiculo = Column(Integer, ForeignKey("tipovehiculo.idTipoVehiculo"), nullable=False)
     Precio = Column(DECIMAL(10, 2), nullable=False)
     CreatedAt = Column(DateTime, server_default=func.now())
     UpdatedAt = Column(DateTime, server_default=func.now(), onupdate=func.now())

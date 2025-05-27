@@ -4,7 +4,7 @@ from sqlalchemy.sql import func
 from app.database import Base
 
 class Venta(Base):
-    __tablename__ = "Venta"
+    __tablename__ = "venta"
 
     idVenta = Column(Integer, primary_key=True, autoincrement=True)
     idCliente = Column(Integer, nullable=True)
